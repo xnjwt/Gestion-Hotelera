@@ -1,3 +1,8 @@
+using Entidades;
+using Datos;
+using Modelo;
+using Vista;
+using Controlador;
 namespace Gestion_Hotelera
 {
     internal static class Program
@@ -11,7 +16,20 @@ namespace Gestion_Hotelera
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            var empDatos = new EmpleadosDatos();
+            var habDatos = new HabitacionesDatos();
+            var tipoHabDatos = new TipoHabitacionesDatos();
+
+            var empModelo = new EmpleadoModelo(empDatos);
+
+
+            var empController = new EmpleadoControlador(empModelo);
+
+
+            var frm = new Login(empController);
+
+            Application.Run(frm);
         }
     }
 }

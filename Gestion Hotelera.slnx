@@ -1,3 +1,8 @@
 <Solution>
+  <Project Path="Controlador/Controlador.csproj" Id="f1c8a164-d579-4e8a-8b06-edf664f7dee1" />
+  <Project Path="Datos/Datos.csproj" Id="c34ac0ea-5a98-4550-a06b-d8f142a3dcf6" />
+  <Project Path="Entidades/Entidades.csproj" Id="40551f59-73db-482e-95c3-b69c365ea6da" />
   <Project Path="Gestion Hotelera/Gestion Hotelera.csproj" />
+  <Project Path="Modelo/Modelo.csproj" Id="be2d86f1-1535-40f2-99ef-8f636bc8369a" />
+  <Project Path="Vista/Vista.csproj" Id="2eeccb06-2ed1-466a-9544-2c2cbf98e5c9" />
 </Solution>

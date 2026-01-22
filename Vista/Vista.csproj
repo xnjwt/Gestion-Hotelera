@@ -3,7 +3,6 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>Gestion_Hotelera</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -11,10 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Controlador\Controlador.csproj" />
-    <ProjectReference Include="..\Datos\Datos.csproj" />
-    <ProjectReference Include="..\Entidades\Entidades.csproj" />
-    <ProjectReference Include="..\Modelo\Modelo.csproj" />
-    <ProjectReference Include="..\Vista\Vista.csproj" />
   </ItemGroup>
 
 </Project>
