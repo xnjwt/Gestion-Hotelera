@@ -1,66 +1,38 @@
-﻿namespace Entidades
+﻿namespace Modelo
 {
     public class Habitacion
     {
+        int id_habitacion;
+        int num_habitacion;
+        string tipo_habitacion;
+        string capacidad;
+        int precio_noche;
+        string caracteristicas;
+        string ubicacion;
+        bool disponibilidad;
 
-        public int Id { get; set; }
-        public int Id_tipohabitacion { get; set; }
-        public int Numhabitación { get; set; }
-        public string Ubicación { get; set; }
-        public string Descripcíon { get; set; }
-        public bool Disponibilidad { get; set; }
-        
-
-        private static int contadorIds = 1;
-
-        public Habitacion(int id_tipohabitacion, int numhabitación, string ubicación, string descripcion="", bool disponibilidad=true)
+        public Habitacion(int id_habitacion, int num_habitacion, string tipo_habitacion, string capacidad, 
+                            int precio_noche, string caracteristicas, string ubicacion, bool disponibilidad)
         {
-            Id = GenerarId();
-            Id_tipohabitacion = id_tipohabitacion;
-            Numhabitación = numhabitación;
-            Ubicación = ubicación;
-            Descripcíon = descripcion;
-            Disponibilidad = disponibilidad;
-        }
-        private int GenerarId()
-        {
-            return contadorIds++;
-        }
-
-        public override String ToString()
-        {
-            return $"Numero Habitacion: {Numhabitación}, Ubicación: {Ubicación}, Disponibilidad: {Disponibilidad}";
-        }
-    }
-
-
-    public class TipoHabitacion
-    {
-        public int Id_tipohabitacion { get; set; }
-        public string Nombre { get; set; }
-        public string Caracteristicas { get; set; }
-        public int Capacidad { get; set; }
-        public float Precio_noche { get; set; }
-
-        private static int contadorIds = 1;
-
-        public TipoHabitacion( string nombre, string caracteristicas, int capacidad, float precio_noche)
-        {
-            Id_tipohabitacion = GenerarId();
-            Nombre = nombre;
-            Caracteristicas = caracteristicas;
+            Id_habitacion = id_habitacion;
+            Num_habitacion = num_habitacion;
+            Tipo_habitacion = tipo_habitacion;
             Capacidad = capacidad;
             Precio_noche = precio_noche;
+            Caracteristicas = caracteristicas;
+            Ubicacion = ubicacion;
+            Disponibilidad = disponibilidad;
         }
 
-        private int GenerarId()
-        {
-            return contadorIds++;
-        }
-
-        public override string ToString()
-        {
-            return $"Nombre: {Nombre}, Caracteristicas: {Caracteristicas}, Capacidad: {Capacidad}, Precio por noche: {Precio_noche}";
-        }
+        public int Id_habitacion { get => id_habitacion; set => id_habitacion = value; }
+        public int Num_habitacion { get => num_habitacion; set => num_habitacion = value; }
+        public string Tipo_habitacion { get => tipo_habitacion; set => tipo_habitacion = value; }
+        public string Capacidad { get => capacidad; set => capacidad = value; }
+        public int Precio_noche { get => precio_noche; set => precio_noche = value; }
+        public string Caracteristicas { get => caracteristicas; set => caracteristicas = value; }
+        public string Ubicacion { get => ubicacion; set => ubicacion = value; }
+        public bool Disponibilidad { get => disponibilidad; set => disponibilidad = value; }
     }
+
+
 }
