@@ -44,6 +44,7 @@
             habitacionComboBox.Name = "habitacionComboBox";
             habitacionComboBox.Size = new Size(121, 23);
             habitacionComboBox.TabIndex = 0;
+            habitacionComboBox.SelectedIndexChanged += habitacionComboBox_SelectedIndexChanged;
             // 
             // habitacionesDGV
             // 

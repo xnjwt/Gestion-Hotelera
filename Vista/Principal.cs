@@ -54,7 +54,8 @@ namespace Vista
 
         private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            var frm = new VisualizarHabitaciones();  // o el formulario que muestre las habitaciones
+            frm.Show();
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
