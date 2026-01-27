@@ -8,128 +8,41 @@ namespace Datos
 {
     public class HabitacionDatos
     {
-        private readonly string cadenaConexion =
-            "Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=Habitaciones; Integrated Security=True; TrustServerCertificate=True";
-
-        // LISTAR TODAS LAS HABITACIONES
-        public List<Habitacion> Listar()
+        string cadenaConexionBD = "data source=(localdb)\\MSSQLLocalDB; initial catalog=Habitaciones; " +
+                                  "integrated security=true; TrustServerCertificate=true";
+        public List<Habitacion> ListarHabitacion()
         {
-            List<Habitacion> lista = new List<Habitacion>();
+            List<Habitacion> habitacion = new List<Habitacion>();
 
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            using (SqlConnection sqlConnection = new SqlConnection(cadenaConexionBD))
             {
-                conexion.Open();
-
-                SqlCommand comando = new SqlCommand("SELECT * FROM Habitacion", conexion);
-                SqlDataReader dr = comando.ExecuteReader();
-
-                while (dr.Read())
+                try
                 {
-                    lista.Add(new Habitacion(
-                        Convert.ToInt32(dr["id_habitacion"]),
-                        Convert.ToInt32(dr["num_habitacion"]),
-                        dr["tipo_habitacion"].ToString(),
-                        dr["capacidad"].ToString(),
-                        Convert.ToInt32(dr["precio_noche"]),
-                        dr["caracteristicas"].ToString(),
-                        dr["ubicacion"].ToString(),
-                        Convert.ToBoolean(dr["disponibilidad"])
-                    ));
-                }
-            }
+                    sqlConnection.Open();
+                    string query = "ConsultarHabitacion";
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-            return lista;
-        }
-
-        // BUSCAR POR ID
-        public Habitacion BuscarPorId(int id)
-        {
-            Habitacion hab = null;
-
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-            {
-                conexion.Open();
-
-                SqlCommand comando = new SqlCommand(
-                    "SELECT * FROM Habitacion WHERE id_habitacion = @id", conexion);
-
-                comando.Parameters.AddWithValue("@id", id);
-
-                SqlDataReader dr = comando.ExecuteReader();
-
-                if (dr.Read())
-                {
-                    hab = new Habitacion(
-                        Convert.ToInt32(dr["id_habitacion"]),
-                        Convert.ToInt32(dr["num_habitacion"]),
-                        dr["tipo_habitacion"].ToString(),
-                        dr["capacidad"].ToString(),
-                        Convert.ToInt32(dr["precio_noche"]),
-                        dr["caracteristicas"].ToString(),
-                        dr["ubicacion"].ToString(),
-                        Convert.ToBoolean(dr["disponibilidad"])
-                    );
-                }
-            }
-
-            return hab;
-        }
-
-        // LISTAR TIPOS DE HABITACIÓN
-        public List<string> ObtenerTiposHabitacion()
-        {
-            List<string> tipos = new List<string>();
-
-            using (SqlConnection conn = new SqlConnection(cadenaConexion))
-            {
-                conn.Open();
-                string query = "SELECT DISTINCT tipo_habitacion FROM Habitacion";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
+                    while (sqlDataReader.Read())
                     {
-                        tipos.Add(dr.GetString(0));
+                        Habitacion habitacion1 = new Habitacion(
+                            Convert.ToInt32(sqlDataReader["Id"]),
+                            Convert.ToInt32(sqlDataReader["Habitacion_id"]),
+                            Convert.ToInt32(sqlDataReader["Numero_Habitacion"]),
+                            sqlDataReader["Ubicacion"].ToString()
+                        );
+
+                        habitacion.Add(habitacion1);
                     }
                 }
-            }
-
-            return tipos;
-        }
-
-        // FILTRAR HABITACIONES POR TIPO
-        public List<Habitacion> ObtenerHabitacionesPorTipo(string tipo)
-        {
-            List<Habitacion> lista = new List<Habitacion>();
-
-            using (SqlConnection conn = new SqlConnection(cadenaConexion))
-            {
-                conn.Open();
-
-                string query = "SELECT * FROM Habitacion WHERE tipo_habitacion = @tipo";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@tipo", tipo);
-
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
+                catch (Exception ex)
                 {
-                    lista.Add(new Habitacion(
-                        Convert.ToInt32(dr["id_habitacion"]),
-                        Convert.ToInt32(dr["num_habitacion"]),
-                        dr["tipo_habitacion"].ToString(),
-                        dr["capacidad"].ToString(),
-                        Convert.ToInt32(dr["precio_noche"]),
-                        dr["caracteristicas"].ToString(),
-                        dr["ubicacion"].ToString(),
-                        Convert.ToBoolean(dr["disponibilidad"])
-                    ));
+                    throw;
                 }
             }
 
-            return lista;
+            return habitacion;
         }
     }
 }
