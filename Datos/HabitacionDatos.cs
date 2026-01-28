@@ -27,8 +27,8 @@ namespace Datos
                     while (sqlDataReader.Read())
                     {
                         Habitacion habitacion1 = new Habitacion(
-                            Convert.ToInt32(sqlDataReader["Id"]),
                             Convert.ToInt32(sqlDataReader["Habitacion_id"]),
+                            Convert.ToInt32(sqlDataReader["Tipo_Habitacion_id"]),
                             Convert.ToInt32(sqlDataReader["Numero_Habitacion"]),
                             sqlDataReader["Ubicacion"].ToString()
                         );

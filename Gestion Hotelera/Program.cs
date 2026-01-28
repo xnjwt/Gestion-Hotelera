@@ -18,8 +18,10 @@ namespace Gestion_Hotelera
             ApplicationConfiguration.Initialize();
 
             var empDatos = new EmpleadosDatos();
+            
             var habDatos = new HabitacionDatos();
 
+            var tiphabDatos = new TipoHabitacionDatos();
 
             var empModelo = new EmpleadoModelo(empDatos);
 

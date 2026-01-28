@@ -65,7 +65,8 @@ namespace Vista
 
         private void listarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            var frm = new VisualizarT_Habitaciones();  // o el formulario que muestre las habitaciones
+            frm.Show();
         }
 
         private void Principal_Load(object sender, EventArgs e)

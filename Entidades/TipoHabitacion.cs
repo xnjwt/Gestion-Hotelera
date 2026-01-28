@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class TipoHabitacion
+    public class TipoHabitacion
     {
         int id_tipo_habitacion;
         string nombre;
