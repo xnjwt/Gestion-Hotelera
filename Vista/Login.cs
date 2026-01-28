@@ -28,26 +28,41 @@ namespace Vista
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             var empleados = Empc.ListarEmpleados();
-
-            var empleadoLogueado = empleados
-            .FirstOrDefault(e =>
-                e.Email.Equals(txtCorreo.Text.Trim(), StringComparison.CurrentCultureIgnoreCase) &&
-                e.Contrasena.Equals(txtContrasena.Text.Trim(), StringComparison.CurrentCultureIgnoreCase) &&
-                e.Estado.Equals("activo", StringComparison.CurrentCultureIgnoreCase)
-            );
-
-            if (empleadoLogueado != null)
-            {
-                MessageBox.Show("Ingreso exitoso");
-                this.Hide();
-                var frmPrincipal = new Principal(Empc);
-                frmPrincipal.ShowDialog();
-                this.Show();
-            }
-            else
+            var empleadoLog = Empc.IniciarSesion(txtCorreo.Text.Trim().ToLower(), txtContrasena.Text.Trim());
+            if (empleadoLog == null)
             {
                 MessageBox.Show("Credenciales incorrectas");
+                return;
             }
+
+            switch (empleadoLog.Rol)
+            {
+                
+                case RolEmpleado.Recepcion:
+                    this.Hide();
+                    var frmPrincipalRecepcion = new PrincipalRecepcion(empleadoLog);
+                    frmPrincipalRecepcion.ShowDialog();
+                    this.Show();
+                    break;
+                case RolEmpleado.Administrador:
+                    this.Hide();
+                    var frmPrincipal = new PrincipalAdministracion(Empc);
+                    frmPrincipal.ShowDialog();
+                    this.Show();
+                    break;
+
+                case RolEmpleado.Limpieza:
+                    this.Hide();
+                    var frmPrincipalLimpieza = new PrincipalLimpieza();
+                    frmPrincipalLimpieza.ShowDialog();
+                    this.Show();
+                    break;
+
+                default:
+                    MessageBox.Show("Rol no reconocido. Consulte Administración");
+                    return;
+            }
+           
         }
 
         private void Login_Load(object sender, EventArgs e)

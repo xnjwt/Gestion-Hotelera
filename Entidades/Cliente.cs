@@ -41,9 +41,10 @@ namespace Entidades
             string Cedula,
             string direccion,
             DateTime? fechaNacimiento = null,
-            bool estado = true)
+            bool estado = true,
+            int id = -1)
         {
-            this.Id = GenerarId();
+            this.Id = id;
             this.Nombre = nombre ?? string.Empty;
             this.Apellido = apellido ?? string.Empty;
             this.Email = email ?? string.Empty;

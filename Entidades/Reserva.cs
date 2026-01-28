@@ -29,9 +29,10 @@ namespace Entidades
             int habitacionId,
             int empleadoId,
             DateTime fechaIngreso,
-            DateTime fechaSalida)
+            DateTime fechaSalida,
+            int id = -1)
         {
-            Id = GenerarId();
+            Id = id;
             ClienteId = clienteId;
             HabitacionId = habitacionId;
             EmpleadoId = empleadoId;
