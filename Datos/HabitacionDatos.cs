@@ -44,5 +44,30 @@ namespace Datos
 
             return habitacion;
         }
+
+        public bool InsertarHabitacion(Habitacion habitacion)
+        {
+            bool respuesta = false;
+            SqlConnection sqlConnection = new SqlConnection(cadenaConexionBD);
+
+            try
+            {
+                string query = "InsertarHabitacion";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("ID", habitacion.Id_habitacion);
+                sqlCommand.Parameters.AddWithValue("Tipo_Habitacion_id", habitacion.Id_tipo_habitacion);
+                sqlCommand.Parameters.AddWithValue("Numero_habitacion", habitacion.Numero_habitacion);
+                sqlCommand.Parameters.AddWithValue("Ubicacion", habitacion.Ubicacion);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return respuesta;
+        }
     }
 }

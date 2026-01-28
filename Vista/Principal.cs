@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,7 +50,8 @@ namespace Vista
 
         private void registrarNuevaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var frm = new InsertarHabitacion();
+            frm.Show();
         }
 
         private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
