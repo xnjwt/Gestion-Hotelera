@@ -63,7 +63,7 @@ namespace Controlador
 
             var empleado = new Empleado(
                 nombresCorrecto,
-                emailCorrecto,
+                emailCorrecto.ToLower(),
                 contrasenaCorrecto,
                 celularCorrecto,
                 rol,
@@ -92,6 +92,12 @@ namespace Controlador
             }
             
 
+        }
+        public Empleado IniciarSesion(string email, string contrasena)
+        {
+            var empleado = mdl.IniciarSesion(email, contrasena);
+
+            return empleado;
         }
 
         public List<Entidades.Empleado> ListarEmpleados()

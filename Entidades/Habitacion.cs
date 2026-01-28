@@ -13,9 +13,9 @@
 
         private static int contadorIds = 1;
 
-        public Habitacion(int id_tipohabitacion, int numhabitación, string ubicación, string descripcion="", bool disponibilidad=true)
+        public Habitacion(int id_tipohabitacion, int numhabitación, string ubicación, string descripcion="", bool disponibilidad=true, int id = -1)
         {
-            Id = GenerarId();
+            Id = id;
             Id_tipohabitacion = id_tipohabitacion;
             Numhabitación = numhabitación;
             Ubicación = ubicación;
@@ -44,9 +44,9 @@
 
         private static int contadorIds = 1;
 
-        public TipoHabitacion( string nombre, string caracteristicas, int capacidad, float precio_noche)
+        public TipoHabitacion( string nombre, string caracteristicas, int capacidad, float precio_noche, int id = -1)
         {
-            Id_tipohabitacion = GenerarId();
+            Id_tipohabitacion = id;
             Nombre = nombre;
             Caracteristicas = caracteristicas;
             Capacidad = capacidad;

@@ -13,9 +13,9 @@ namespace Entidades
         private static int contadorIds = 1;
 
 
-        public Pago( int reservaId, decimal montoTotal, string metodo)
+        public Pago( int reservaId, decimal montoTotal, string metodo, int id = -1)
         {
-            Id = GenerarId();
+            Id = id;
             ReservaId = reservaId;
             MontoTotal = montoTotal;
             Metodo = metodo;
