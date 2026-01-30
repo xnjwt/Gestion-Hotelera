@@ -36,6 +36,7 @@
             // 
             // habitacionesDGV
             // 
+            habitacionesDGV.BackgroundColor = Color.BlueViolet;
             habitacionesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             habitacionesDGV.Location = new Point(12, 37);
             habitacionesDGV.Name = "habitacionesDGV";
@@ -53,6 +54,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.FromArgb(192, 0, 192);
             label2.Location = new Point(12, 19);
             label2.Name = "label2";
             label2.Size = new Size(76, 15);

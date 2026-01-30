@@ -62,7 +62,8 @@ namespace Vista
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var frm = new InsertarT_Habitaciones();
+            frm.Show();
         }
 
         private void listarToolStripMenuItem2_Click(object sender, EventArgs e)

@@ -44,6 +44,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.FromArgb(192, 0, 192);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
@@ -68,6 +69,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.FromArgb(192, 0, 192);
             label2.Location = new Point(12, 116);
             label2.Name = "label2";
             label2.Size = new Size(128, 15);
@@ -77,6 +79,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.FromArgb(192, 0, 192);
             label3.Location = new Point(12, 62);
             label3.Name = "label3";
             label3.Size = new Size(122, 15);
@@ -86,6 +89,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = Color.FromArgb(192, 0, 192);
             label4.Location = new Point(12, 170);
             label4.Name = "label4";
             label4.Size = new Size(60, 15);
@@ -94,6 +98,7 @@
             // 
             // habitacionDGV
             // 
+            habitacionDGV.BackgroundColor = Color.BlueViolet;
             habitacionDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             habitacionDGV.Location = new Point(158, 12);
             habitacionDGV.Name = "habitacionDGV";
@@ -102,12 +107,14 @@
             // 
             // ingresarBTN
             // 
+            ingresarBTN.BackColor = Color.FromArgb(192, 0, 192);
+            ingresarBTN.ForeColor = Color.Black;
             ingresarBTN.Location = new Point(12, 231);
             ingresarBTN.Name = "ingresarBTN";
             ingresarBTN.Size = new Size(75, 23);
             ingresarBTN.TabIndex = 9;
             ingresarBTN.Text = "Ingresar";
-            ingresarBTN.UseVisualStyleBackColor = true;
+            ingresarBTN.UseVisualStyleBackColor = false;
             ingresarBTN.Click += button1_Click;
             // 
             // tidCB
