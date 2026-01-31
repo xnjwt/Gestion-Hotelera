@@ -20,15 +20,19 @@ namespace Modelo
 
         public void CrearAdmin()
         {
+            
+            if (Dts.Listar().Count >0) return;
+
             var empleado = new Empleado(
                 nombres: "Admin",
-                email:"admin@lajoya.com",
+                email: "admin@lajoya.com",
                 contraseña: "admin123",
                 celular: "0000000000",
-                rol : RolEmpleado.Administrador,
+                rol: RolEmpleado.Administrador,
                 turno: TurnoEmpleado.Manana,
                 estado: "activo"
                 );
+
             Dts.Guardar(empleado);
             
                 
@@ -77,6 +81,10 @@ namespace Modelo
         public void Despedir(int idEmpleado)
         {
             Dts.Despedir(idEmpleado);
+        }
+        public Empleado IniciarSesion(string email, string contrasena)
+        {
+            return Dts.IniciarSesion(email, contrasena);
         }
     }
 }

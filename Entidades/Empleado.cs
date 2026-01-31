@@ -28,9 +28,9 @@ namespace Entidades
         private static int contadorIds = 1;
 
 
-        public Empleado(string nombres, string email, string contraseña, string celular, RolEmpleado rol, TurnoEmpleado turno, string estado = "activo")
+        public Empleado( string nombres, string email, string contraseña, string celular, RolEmpleado rol, TurnoEmpleado turno, string estado = "activo", int id = -1)
         {
-            Id = GenerarId();
+            Id = id;
             Nombres = nombres;
             Email = email;
             Contrasena = contraseña;

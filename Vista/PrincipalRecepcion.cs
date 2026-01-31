@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 using Controlador;
 namespace Vista
 {
-    public partial class Principal : Form
+    public partial class PrincipalRecepcion : Form
     {
-        EmpleadoControlador Empc { get; set; }
+
+        Empleado EmpleadoLogueado { get; set; }
         //Agregar los demás controladores necesarios
 
-        public Principal(EmpleadoControlador empc) //Agregar los demás controladores necesarios
+        public PrincipalRecepcion(Empleado empLogueado) //Agregar los demás controladores necesarios
         {
-            Empc = empc;
+            EmpleadoLogueado = empLogueado;
 
             InitializeComponent();
         }
@@ -29,16 +31,12 @@ namespace Vista
 
         private void contratarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new CrearEmpleado(Empc);
-            frm.Show();
+
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            var lEmpleados = Empc.ListarEmpleados();
-            var frm = new ListarEmpleado(Empc);
-            frm.Show();
 
         }
 
