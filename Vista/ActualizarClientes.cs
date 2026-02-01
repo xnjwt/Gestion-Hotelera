@@ -7,13 +7,13 @@ using Entidades;
 
 namespace Vista
 {
-    public partial class ActualizarCliente : Form
+    public partial class ActualizarClientes : Form
     {
         private ClienteControlador Clc { get; set; }
         private Cliente Clie { get; set; } // Objeto cliente que recibimos para editar
 
         // El constructor recibe el controlador y el cliente seleccionado de la grilla
-        public ActualizarCliente(ClienteControlador clc, Cliente clienteSeleccionado)
+        public ActualizarClientes(ClienteControlador clc, Cliente clienteSeleccionado)
         {
             Clc = clc;
             Clie = clienteSeleccionado;
@@ -87,24 +87,7 @@ namespace Vista
                 MessageBox.Show(ex.Message, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            if (dgvClientes.CurrentRow is null)
-            {
-                MessageBox.Show("Seleccione un cliente.");
-                return;
-            }
 
-            // 1. Obtenemos el cliente de la fila seleccionada
-            var cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-
-            // 2. Abrimos el formulario de Actualizar pasando el Controlador y el Cliente
-            ActualizarCliente frm = new ActualizarCliente(Clc, cliente);
-            frm.ShowDialog();
-
-            // 3. Refrescamos la tabla al cerrar el formulario
-            CargarDatos();
-        }
 
         private void CargarDatos()
         {

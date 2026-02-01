@@ -1,7 +1,7 @@
 ﻿
 namespace Vista
 {
-    partial class CrearClientes
+    partial class ActualizarClientes
     {
         /// <summary>
         /// Required designer variable.
