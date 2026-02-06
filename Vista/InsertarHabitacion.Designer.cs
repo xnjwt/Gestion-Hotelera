@@ -35,9 +35,11 @@
             label3 = new Label();
             label4 = new Label();
             habitacionDGV = new DataGridView();
-            ingresarBTN = new Button();
+            guardarBTN = new Button();
             tidCB = new ComboBox();
             ubicacionCB = new ComboBox();
+            eliminarBTN = new Button();
+            nuevoBTN = new Button();
             ((System.ComponentModel.ISupportInitialize)habitacionDGV).BeginInit();
             SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             idTXT.Name = "idTXT";
             idTXT.Size = new Size(100, 23);
             idTXT.TabIndex = 1;
+            idTXT.Text = "0";
             // 
             // numhabitacionTXT
             // 
@@ -104,21 +107,23 @@
             habitacionDGV.Name = "habitacionDGV";
             habitacionDGV.Size = new Size(630, 426);
             habitacionDGV.TabIndex = 8;
+            habitacionDGV.RowEnter += habitacionDGV_RowEnter;
             // 
-            // ingresarBTN
+            // guardarBTN
             // 
-            ingresarBTN.BackColor = Color.FromArgb(192, 0, 192);
-            ingresarBTN.ForeColor = Color.Black;
-            ingresarBTN.Location = new Point(12, 231);
-            ingresarBTN.Name = "ingresarBTN";
-            ingresarBTN.Size = new Size(75, 23);
-            ingresarBTN.TabIndex = 9;
-            ingresarBTN.Text = "Ingresar";
-            ingresarBTN.UseVisualStyleBackColor = false;
-            ingresarBTN.Click += button1_Click;
+            guardarBTN.BackColor = Color.FromArgb(192, 0, 192);
+            guardarBTN.ForeColor = Color.Black;
+            guardarBTN.Location = new Point(12, 231);
+            guardarBTN.Name = "guardarBTN";
+            guardarBTN.Size = new Size(128, 45);
+            guardarBTN.TabIndex = 9;
+            guardarBTN.Text = "Ingresar  / Actualizar";
+            guardarBTN.UseVisualStyleBackColor = false;
+            guardarBTN.Click += guardarBTN_Click;
             // 
             // tidCB
             // 
+            tidCB.DropDownStyle = ComboBoxStyle.DropDownList;
             tidCB.FormattingEnabled = true;
             tidCB.Items.AddRange(new object[] { "1", "2", "3" });
             tidCB.Location = new Point(12, 80);
@@ -128,6 +133,7 @@
             // 
             // ubicacionCB
             // 
+            ubicacionCB.DropDownStyle = ComboBoxStyle.DropDownList;
             ubicacionCB.FormattingEnabled = true;
             ubicacionCB.Items.AddRange(new object[] { "Primer piso", "Segundo piso", "Tercer piso" });
             ubicacionCB.Location = new Point(12, 188);
@@ -135,14 +141,40 @@
             ubicacionCB.Size = new Size(121, 23);
             ubicacionCB.TabIndex = 11;
             // 
+            // eliminarBTN
+            // 
+            eliminarBTN.BackColor = Color.FromArgb(192, 0, 192);
+            eliminarBTN.ForeColor = Color.Black;
+            eliminarBTN.Location = new Point(12, 282);
+            eliminarBTN.Name = "eliminarBTN";
+            eliminarBTN.Size = new Size(91, 33);
+            eliminarBTN.TabIndex = 12;
+            eliminarBTN.Text = "Eliminar";
+            eliminarBTN.UseVisualStyleBackColor = false;
+            eliminarBTN.Click += eliminarBTN_Click;
+            // 
+            // nuevoBTN
+            // 
+            nuevoBTN.BackColor = Color.FromArgb(192, 0, 192);
+            nuevoBTN.ForeColor = Color.Black;
+            nuevoBTN.Location = new Point(12, 321);
+            nuevoBTN.Name = "nuevoBTN";
+            nuevoBTN.Size = new Size(91, 33);
+            nuevoBTN.TabIndex = 13;
+            nuevoBTN.Text = "Nuevo";
+            nuevoBTN.UseVisualStyleBackColor = false;
+            nuevoBTN.Click += nuevoBTN_Click;
+            // 
             // InsertarHabitacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(nuevoBTN);
+            Controls.Add(eliminarBTN);
             Controls.Add(ubicacionCB);
             Controls.Add(tidCB);
-            Controls.Add(ingresarBTN);
+            Controls.Add(guardarBTN);
             Controls.Add(habitacionDGV);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -167,8 +199,10 @@
         private Label label3;
         private Label label4;
         private DataGridView habitacionDGV;
-        private Button ingresarBTN;
+        private Button guardarBTN;
         private ComboBox tidCB;
         private ComboBox ubicacionCB;
+        private Button eliminarBTN;
+        private Button nuevoBTN;
     }
 }

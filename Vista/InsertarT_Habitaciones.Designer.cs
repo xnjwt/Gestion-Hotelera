@@ -49,9 +49,9 @@
             // 
             GuardarBTN.Location = new Point(12, 326);
             GuardarBTN.Name = "GuardarBTN";
-            GuardarBTN.Size = new Size(82, 34);
+            GuardarBTN.Size = new Size(82, 51);
             GuardarBTN.TabIndex = 19;
-            GuardarBTN.Text = "Guardar";
+            GuardarBTN.Text = "Guardar / Actualizar";
             GuardarBTN.UseVisualStyleBackColor = true;
             GuardarBTN.Click += guardarBTN_Click;
             // 

@@ -46,20 +46,6 @@ namespace Vista
             tipohabitacionDGV.DataSource = tipohabitacionDatos.ListarT_Habitacion();
         }
 
-        private void tipohabitacionDGV_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (tipohabitacionDGV.SelectedRows.Count > 0)
-            {
-                idTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["id_tipo_Habitacion"].Value.ToString();
-                nombreTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                capacidadTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Capacidad"].Value.ToString();
-                precio_nocheTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Precio_noche"].Value.ToString();
-                caracteristicasTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Caracteristicas"].Value.ToString();
-            }
-
-
-        }
-
         private void eliminarBTN_Click(object sender, EventArgs e)
         {
             TipoHabitacion tipohabitacion = new TipoHabitacion(
@@ -82,6 +68,18 @@ namespace Vista
             capacidadTXT.Text = null;
             precio_nocheTXT.Text = null;
             caracteristicasTXT.Text = null;
+        }
+
+        private void tipohabitacionDGV_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (tipohabitacionDGV.SelectedRows.Count > 0)
+            {
+                idTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["id_tipo_Habitacion"].Value.ToString();
+                nombreTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                capacidadTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Capacidad"].Value.ToString();
+                precio_nocheTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Precio_noche"].Value.ToString();
+                caracteristicasTXT.Text = tipohabitacionDGV.SelectedRows[0].Cells["Caracteristicas"].Value.ToString();
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
-﻿using Modelo;
+﻿using Datos;
+using Entidades;
+using Modelo;
 using System.Collections.Generic;
-using Datos;
 
 namespace Controlador
 {
@@ -11,6 +12,16 @@ namespace Controlador
         {
             //Logica - reglas del negocio - controlador
             return habitacionDatos.InsertarHabitacion(habitacion);
+        }
+
+        public bool ActualizarHabitacion(Habitacion habitacion)
+        {
+            return habitacionDatos.ActualizarHabitacion(habitacion);
+        }
+
+        public bool EliminarHabitacion(Habitacion habitacion)
+        {
+            return habitacionDatos.EliminarHabitacion(habitacion);
         }
 
     }
