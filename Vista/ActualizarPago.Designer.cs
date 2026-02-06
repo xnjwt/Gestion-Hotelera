@@ -64,7 +64,7 @@
             // cmbMetodo
             // 
             cmbMetodo.FormattingEnabled = true;
-            cmbMetodo.Items.AddRange(new object[] { "Recepción", "Limpieza", "Administrador" });
+            cmbMetodo.Items.AddRange(new object[] { "Transferencia", "Efectivo ", "Cheque", "Tarjeta" });
             cmbMetodo.Location = new Point(244, 232);
             cmbMetodo.Margin = new Padding(3, 4, 3, 4);
             cmbMetodo.Name = "cmbMetodo";

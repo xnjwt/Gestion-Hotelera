@@ -31,6 +31,7 @@
             label1 = new Label();
             dgvClientes = new DataGridView();
             btnActualizar = new Button();
+            btnDesactivar = new Button();
             Nombres = new DataGridViewTextBoxColumn();
             Apellidos = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
@@ -38,7 +39,6 @@
             Direccion = new DataGridViewTextBoxColumn();
             FechaNacimiento = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
-            btnDesactivar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -79,56 +79,6 @@
             btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
-            // Nombres
-            // 
-            Nombres.DataPropertyName = "Nombres";
-            Nombres.HeaderText = "Nombres";
-            Nombres.MinimumWidth = 6;
-            Nombres.Name = "Nombres";
-            Nombres.Width = 200;
-            // 
-            // Apellidos
-            // 
-            Apellidos.HeaderText = "Apellidos";
-            Apellidos.MinimumWidth = 6;
-            Apellidos.Name = "Apellidos";
-            Apellidos.Width = 125;
-            // 
-            // Cedula
-            // 
-            Cedula.HeaderText = "Cedula";
-            Cedula.MinimumWidth = 6;
-            Cedula.Name = "Cedula";
-            Cedula.Width = 125;
-            // 
-            // Celular
-            // 
-            Celular.HeaderText = "Celular";
-            Celular.MinimumWidth = 6;
-            Celular.Name = "Celular";
-            Celular.Width = 125;
-            // 
-            // Direccion
-            // 
-            Direccion.HeaderText = "Direccion";
-            Direccion.MinimumWidth = 6;
-            Direccion.Name = "Direccion";
-            Direccion.Width = 140;
-            // 
-            // FechaNacimiento
-            // 
-            FechaNacimiento.HeaderText = "FechaNacimiento";
-            FechaNacimiento.MinimumWidth = 6;
-            FechaNacimiento.Name = "FechaNacimiento";
-            FechaNacimiento.Width = 125;
-            // 
-            // Correo
-            // 
-            Correo.HeaderText = "Correo";
-            Correo.MinimumWidth = 6;
-            Correo.Name = "Correo";
-            Correo.Width = 250;
-            // 
             // btnDesactivar
             // 
             btnDesactivar.BackColor = Color.MediumVioletRed;
@@ -141,6 +91,62 @@
             btnDesactivar.TabIndex = 17;
             btnDesactivar.Text = "Desactivar";
             btnDesactivar.UseVisualStyleBackColor = false;
+            // 
+            // Nombres
+            // 
+            Nombres.DataPropertyName = "Nombre";
+            Nombres.HeaderText = "Nombres";
+            Nombres.MinimumWidth = 6;
+            Nombres.Name = "Nombres";
+            Nombres.Width = 200;
+            // 
+            // Apellidos
+            // 
+            Apellidos.DataPropertyName = "Apellido";
+            Apellidos.HeaderText = "Apellidos";
+            Apellidos.MinimumWidth = 6;
+            Apellidos.Name = "Apellidos";
+            Apellidos.Width = 125;
+            // 
+            // Cedula
+            // 
+            Cedula.DataPropertyName = "Cedula";
+            Cedula.HeaderText = "Cedula";
+            Cedula.MinimumWidth = 6;
+            Cedula.Name = "Cedula";
+            Cedula.Width = 125;
+            // 
+            // Celular
+            // 
+            Celular.DataPropertyName = "Celular";
+            Celular.HeaderText = "Celular";
+            Celular.MinimumWidth = 6;
+            Celular.Name = "Celular";
+            Celular.Width = 125;
+            // 
+            // Direccion
+            // 
+            Direccion.DataPropertyName = "Direccion";
+            Direccion.HeaderText = "Direccion";
+            Direccion.MinimumWidth = 6;
+            Direccion.Name = "Direccion";
+            Direccion.Width = 140;
+            // 
+            // FechaNacimiento
+            // 
+            FechaNacimiento.DataPropertyName = "FechaNacimiento";
+            FechaNacimiento.HeaderText = "FechaNacimiento";
+            FechaNacimiento.MinimumWidth = 6;
+            FechaNacimiento.Name = "FechaNacimiento";
+            FechaNacimiento.Width = 125;
+            // 
+            // Correo
+            // 
+            Correo.DataPropertyName = "Email";
+            Correo.HeaderText = "Correo";
+            Correo.MinimumWidth = 6;
+            Correo.Name = "Correo";
+            Correo.Width = 250;
             // 
             // ListarClientes
             // 
@@ -163,6 +169,7 @@
         private Label label1;
         private DataGridView dgvClientes;
         private Button btnActualizar;
+        private Button btnDesactivar;
         private DataGridViewTextBoxColumn Nombres;
         private DataGridViewTextBoxColumn Apellidos;
         private DataGridViewTextBoxColumn Cedula;
@@ -170,6 +177,5 @@
         private DataGridViewTextBoxColumn Direccion;
         private DataGridViewTextBoxColumn FechaNacimiento;
         private DataGridViewTextBoxColumn Correo;
-        private Button btnDesactivar;
     }
 }

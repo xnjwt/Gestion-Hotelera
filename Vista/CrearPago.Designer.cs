@@ -95,18 +95,18 @@
             // cmbMetodo
             // 
             cmbMetodo.FormattingEnabled = true;
-            cmbMetodo.Items.AddRange(new object[] { "Recepción", "Limpieza", "Administrador" });
+            cmbMetodo.Items.AddRange(new object[] { "Transferencia", "Efectivo ", "Cheque", "Tarjeta" });
             cmbMetodo.Location = new Point(163, 229);
             cmbMetodo.Margin = new Padding(3, 4, 3, 4);
             cmbMetodo.Name = "cmbMetodo";
             cmbMetodo.Size = new Size(268, 28);
             cmbMetodo.TabIndex = 26;
             // 
-            // txtNombres
+            // txtMonto
             // 
             txtMonto.Location = new Point(163, 175);
             txtMonto.Margin = new Padding(3, 4, 3, 4);
-            txtMonto.Name = "txtMonto"; 
+            txtMonto.Name = "txtMonto";
             txtMonto.Size = new Size(268, 27);
             txtMonto.TabIndex = 27;
             // 

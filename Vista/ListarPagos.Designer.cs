@@ -91,6 +91,7 @@
             // 
             // ReservaID
             // 
+            ReservaID.DataPropertyName = "ReservaID";
             ReservaID.HeaderText = "ReservaID";
             ReservaID.MinimumWidth = 6;
             ReservaID.Name = "ReservaID";
@@ -98,6 +99,7 @@
             // 
             // MontoPagar
             // 
+            MontoPagar.DataPropertyName = "MontoTotal";
             MontoPagar.HeaderText = "MontoPagar";
             MontoPagar.MinimumWidth = 6;
             MontoPagar.Name = "MontoPagar";
@@ -105,6 +107,7 @@
             // 
             // MetodoPago
             // 
+            MetodoPago.DataPropertyName = "Metodo";
             MetodoPago.HeaderText = "MetodoPago";
             MetodoPago.MinimumWidth = 6;
             MetodoPago.Name = "MetodoPago";

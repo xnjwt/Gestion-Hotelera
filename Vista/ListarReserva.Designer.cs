@@ -30,12 +30,12 @@
         {
             label1 = new Label();
             dgvReserva = new DataGridView();
+            btnEliminar = new Button();
+            btnActualizar = new Button();
             Cliente = new DataGridViewTextBoxColumn();
             Habitacion = new DataGridViewTextBoxColumn();
             FechaEntrada = new DataGridViewTextBoxColumn();
             FechaSalida = new DataGridViewTextBoxColumn();
-            btnEliminar = new Button();
-            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvReserva).BeginInit();
             SuspendLayout();
             // 
@@ -62,34 +62,6 @@
             dgvReserva.Size = new Size(552, 283);
             dgvReserva.TabIndex = 14;
             // 
-            // Cliente
-            // 
-            Cliente.HeaderText = "Cliente";
-            Cliente.MinimumWidth = 6;
-            Cliente.Name = "Cliente";
-            Cliente.Width = 125;
-            // 
-            // Habitacion
-            // 
-            Habitacion.HeaderText = "Habitacion";
-            Habitacion.MinimumWidth = 6;
-            Habitacion.Name = "Habitacion";
-            Habitacion.Width = 125;
-            // 
-            // FechaEntrada
-            // 
-            FechaEntrada.HeaderText = "FechaEntrada";
-            FechaEntrada.MinimumWidth = 6;
-            FechaEntrada.Name = "FechaEntrada";
-            FechaEntrada.Width = 125;
-            // 
-            // FechaSalida
-            // 
-            FechaSalida.HeaderText = "FechaSalida";
-            FechaSalida.MinimumWidth = 6;
-            FechaSalida.Name = "FechaSalida";
-            FechaSalida.Width = 125;
-            // 
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.MediumVioletRed;
@@ -115,6 +87,38 @@
             btnActualizar.TabIndex = 18;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
+            // 
+            // Cliente
+            // 
+            Cliente.DataPropertyName = "ClienteID";
+            Cliente.HeaderText = "Cliente";
+            Cliente.MinimumWidth = 6;
+            Cliente.Name = "Cliente";
+            Cliente.Width = 125;
+            // 
+            // Habitacion
+            // 
+            Habitacion.DataPropertyName = "HabitacionID";
+            Habitacion.HeaderText = "Habitacion";
+            Habitacion.MinimumWidth = 6;
+            Habitacion.Name = "Habitacion";
+            Habitacion.Width = 125;
+            // 
+            // FechaEntrada
+            // 
+            FechaEntrada.DataPropertyName = "FechaIngreso";
+            FechaEntrada.HeaderText = "FechaEntrada";
+            FechaEntrada.MinimumWidth = 6;
+            FechaEntrada.Name = "FechaEntrada";
+            FechaEntrada.Width = 125;
+            // 
+            // FechaSalida
+            // 
+            FechaSalida.DataPropertyName = "FechaSalida";
+            FechaSalida.HeaderText = "FechaSalida";
+            FechaSalida.MinimumWidth = 6;
+            FechaSalida.Name = "FechaSalida";
+            FechaSalida.Width = 125;
             // 
             // ListarReserva
             // 
