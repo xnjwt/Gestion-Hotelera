@@ -12,21 +12,21 @@ namespace Entidades
         string nombre;
         string capacidad;
         int precio_noche;
-        string caracteisticas;
+        string caracteristicas;
 
-        public TipoHabitacion(int id_tipo_habitacion, string nombre, string capacidad, int precio_noche, string caracteisticas)
+        public TipoHabitacion(int id_tipo_habitacion, string nombre, string capacidad, int precio_noche, string caracteristicas)
         {
             Id_tipo_habitacion = id_tipo_habitacion;
             Nombre = nombre;
             Capacidad = capacidad;
             Precio_noche = precio_noche;
-            Caracteisticas = caracteisticas;
+            Caracteristicas = caracteristicas;
         }
 
         public int Id_tipo_habitacion { get => id_tipo_habitacion; set => id_tipo_habitacion = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Capacidad { get => capacidad; set => capacidad = value; }
         public int Precio_noche { get => precio_noche; set => precio_noche = value; }
-        public string Caracteisticas { get => caracteisticas; set => caracteisticas = value; }
+        public string Caracteristicas { get => caracteristicas; set => caracteristicas = value; }
     }
 }

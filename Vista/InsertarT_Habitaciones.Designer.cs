@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ingresarBTN = new Button();
+            GuardarBTN = new Button();
             tipohabitacionDGV = new DataGridView();
             label4 = new Label();
             label3 = new Label();
@@ -40,33 +40,36 @@
             precio_nocheTXT = new TextBox();
             label5 = new Label();
             caracteristicasTXT = new RichTextBox();
+            eliminarBTN = new Button();
+            nuevoBTN = new Button();
             ((System.ComponentModel.ISupportInitialize)tipohabitacionDGV).BeginInit();
             SuspendLayout();
             // 
-            // ingresarBTN
+            // GuardarBTN
             // 
-            ingresarBTN.Location = new Point(12, 415);
-            ingresarBTN.Name = "ingresarBTN";
-            ingresarBTN.Size = new Size(75, 23);
-            ingresarBTN.TabIndex = 19;
-            ingresarBTN.Text = "Ingresar";
-            ingresarBTN.UseVisualStyleBackColor = true;
-            ingresarBTN.Click += ingresarBTN_Click;
+            GuardarBTN.Location = new Point(12, 326);
+            GuardarBTN.Name = "GuardarBTN";
+            GuardarBTN.Size = new Size(82, 34);
+            GuardarBTN.TabIndex = 19;
+            GuardarBTN.Text = "Guardar";
+            GuardarBTN.UseVisualStyleBackColor = true;
+            GuardarBTN.Click += guardarBTN_Click;
             // 
             // tipohabitacionDGV
             // 
             tipohabitacionDGV.BackgroundColor = Color.BlueViolet;
             tipohabitacionDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tipohabitacionDGV.Location = new Point(256, 14);
+            tipohabitacionDGV.Location = new Point(305, 14);
             tipohabitacionDGV.Name = "tipohabitacionDGV";
-            tipohabitacionDGV.Size = new Size(532, 424);
+            tipohabitacionDGV.Size = new Size(483, 424);
             tipohabitacionDGV.TabIndex = 18;
+            tipohabitacionDGV.RowEnter += tipohabitacionDGV_RowEnter;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.FromArgb(192, 0, 192);
-            label4.Location = new Point(12, 172);
+            label4.Location = new Point(143, 70);
             label4.Name = "label4";
             label4.Size = new Size(97, 15);
             label4.TabIndex = 17;
@@ -76,7 +79,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(192, 0, 192);
-            label3.Location = new Point(12, 64);
+            label3.Location = new Point(143, 9);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 16;
@@ -84,7 +87,7 @@
             // 
             // capacidadTXT
             // 
-            capacidadTXT.Location = new Point(12, 136);
+            capacidadTXT.Location = new Point(12, 88);
             capacidadTXT.Name = "capacidadTXT";
             capacidadTXT.Size = new Size(100, 23);
             capacidadTXT.TabIndex = 15;
@@ -93,7 +96,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.FromArgb(192, 0, 192);
-            label2.Location = new Point(12, 118);
+            label2.Location = new Point(12, 70);
             label2.Name = "label2";
             label2.Size = new Size(121, 15);
             label2.TabIndex = 14;
@@ -106,6 +109,7 @@
             idTXT.Name = "idTXT";
             idTXT.Size = new Size(100, 23);
             idTXT.TabIndex = 13;
+            idTXT.Text = "0";
             // 
             // label1
             // 
@@ -119,14 +123,14 @@
             // 
             // nombreTXT
             // 
-            nombreTXT.Location = new Point(12, 82);
+            nombreTXT.Location = new Point(143, 27);
             nombreTXT.Name = "nombreTXT";
             nombreTXT.Size = new Size(100, 23);
             nombreTXT.TabIndex = 22;
             // 
             // precio_nocheTXT
             // 
-            precio_nocheTXT.Location = new Point(12, 190);
+            precio_nocheTXT.Location = new Point(143, 88);
             precio_nocheTXT.Name = "precio_nocheTXT";
             precio_nocheTXT.Size = new Size(100, 23);
             precio_nocheTXT.TabIndex = 23;
@@ -135,7 +139,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.FromArgb(192, 0, 192);
-            label5.Location = new Point(12, 228);
+            label5.Location = new Point(12, 124);
             label5.Name = "label5";
             label5.Size = new Size(170, 15);
             label5.TabIndex = 24;
@@ -143,22 +147,44 @@
             // 
             // caracteristicasTXT
             // 
-            caracteristicasTXT.Location = new Point(12, 246);
+            caracteristicasTXT.Location = new Point(12, 142);
             caracteristicasTXT.Name = "caracteristicasTXT";
             caracteristicasTXT.Size = new Size(238, 163);
             caracteristicasTXT.TabIndex = 25;
             caracteristicasTXT.Text = "";
+            // 
+            // eliminarBTN
+            // 
+            eliminarBTN.Location = new Point(100, 326);
+            eliminarBTN.Name = "eliminarBTN";
+            eliminarBTN.Size = new Size(82, 34);
+            eliminarBTN.TabIndex = 26;
+            eliminarBTN.Text = "Eliminar";
+            eliminarBTN.UseVisualStyleBackColor = true;
+            eliminarBTN.Click += eliminarBTN_Click;
+            // 
+            // nuevoBTN
+            // 
+            nuevoBTN.Location = new Point(188, 326);
+            nuevoBTN.Name = "nuevoBTN";
+            nuevoBTN.Size = new Size(82, 34);
+            nuevoBTN.TabIndex = 27;
+            nuevoBTN.Text = "Nuevo";
+            nuevoBTN.UseVisualStyleBackColor = true;
+            nuevoBTN.Click += nuevoBTN_Click;
             // 
             // InsertarT_Habitaciones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(nuevoBTN);
+            Controls.Add(eliminarBTN);
             Controls.Add(caracteristicasTXT);
             Controls.Add(label5);
             Controls.Add(precio_nocheTXT);
             Controls.Add(nombreTXT);
-            Controls.Add(ingresarBTN);
+            Controls.Add(GuardarBTN);
             Controls.Add(tipohabitacionDGV);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -176,7 +202,7 @@
 
         #endregion
 
-        private Button ingresarBTN;
+        private Button GuardarBTN;
         private DataGridView tipohabitacionDGV;
         private Label label4;
         private Label label3;
@@ -188,5 +214,7 @@
         private TextBox precio_nocheTXT;
         private Label label5;
         private RichTextBox caracteristicasTXT;
+        private Button eliminarBTN;
+        private Button nuevoBTN;
     }
 }

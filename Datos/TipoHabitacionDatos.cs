@@ -63,7 +63,59 @@ namespace Datos
                 sqlCommand.Parameters.AddWithValue("Nombre", thabitacion.Nombre);
                 sqlCommand.Parameters.AddWithValue("Capacidad", thabitacion.Capacidad);
                 sqlCommand.Parameters.AddWithValue("Precio_Noche", thabitacion.Precio_noche);
-                sqlCommand.Parameters.AddWithValue("Caracteristicas", thabitacion.Caracteisticas);
+                sqlCommand.Parameters.AddWithValue("Caracteristicas", thabitacion.Caracteristicas);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return respuesta;
+        }
+
+        public bool ActualizarT_Habitacion(TipoHabitacion tipohabitacion)
+        {
+            bool respuesta = false;
+            SqlConnection sqlConnection = new SqlConnection(cadenaConexionBD);
+
+            try
+            {
+                string query = "ActualizarT_Habitacion";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("Tipo_Habitacion_id", tipohabitacion.Id_tipo_habitacion);
+                sqlCommand.Parameters.AddWithValue("Nombre", tipohabitacion.Nombre);
+                sqlCommand.Parameters.AddWithValue("Capacidad", tipohabitacion.Capacidad);
+                sqlCommand.Parameters.AddWithValue("Precio_Noche", tipohabitacion.Precio_noche);
+                sqlCommand.Parameters.AddWithValue("Caracteristicas", tipohabitacion.Caracteristicas);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return respuesta;
+        }
+
+        public bool EliminarT_Habitacion(TipoHabitacion tipohabitacion)
+        {
+            bool respuesta = false;
+            SqlConnection sqlConnection = new SqlConnection(cadenaConexionBD);
+
+            try
+            {
+                string query = "EliminarT_Habitacion";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("Tipo_Habitacion_id", tipohabitacion.Id_tipo_habitacion);
+                sqlCommand.Parameters.AddWithValue("Nombre", tipohabitacion.Nombre);
+                sqlCommand.Parameters.AddWithValue("Capacidad", tipohabitacion.Capacidad);
+                sqlCommand.Parameters.AddWithValue("Precio_Noche", tipohabitacion.Precio_noche);
+                sqlCommand.Parameters.AddWithValue("Caracteristicas", tipohabitacion.Caracteristicas);
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
                 respuesta = true;

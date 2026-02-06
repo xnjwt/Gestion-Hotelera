@@ -14,8 +14,19 @@ namespace Controlador
         TipoHabitacionDatos tipohabitacionDatos = new TipoHabitacionDatos();
         public bool GuardarTipoHabitacion(TipoHabitacion tipohabitacion)
         {
-            //Logica - reglas del negocio - controlador
             return tipohabitacionDatos.InsertarTipoHabitacion(tipohabitacion);
         }
+
+        public bool ActualizarTipoHabitacion(TipoHabitacion tipohabitacion)
+        {
+            return tipohabitacionDatos.ActualizarT_Habitacion(tipohabitacion);
+        }
+
+        public bool EliminarTipoHabitacion(TipoHabitacion tipohabitacion)
+        {
+            return tipohabitacionDatos.EliminarT_Habitacion(tipohabitacion);
+        }
+
+
     }
 }
