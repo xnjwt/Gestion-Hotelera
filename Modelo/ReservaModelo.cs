@@ -18,7 +18,7 @@ namespace Modelo
         {
             if (reserva == null) throw new ArgumentNullException(nameof(reserva));
 
-            // Validaciones de negocio antes de ir a datos
+            // Validaciones
             if (reserva.FechaSalida <= reserva.FechaIngreso)
             {
                 throw new ArgumentException("La fecha de salida debe ser posterior a la fecha de ingreso.");

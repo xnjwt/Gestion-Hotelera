@@ -44,42 +44,41 @@ namespace Vista
             dateTimePicker1 = new DateTimePicker();
             label5 = new Label();
             txtCedula = new TextBox();
+            cbActivo = new CheckBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 9F);
             label1.ForeColor = Color.BlueViolet;
-            label1.Location = new Point(89, 35);
+            label1.Location = new Point(78, 26);
             label1.Name = "label1";
-            label1.Size = new Size(114, 31);
+            label1.Size = new Size(100, 23);
             label1.TabIndex = 0;
             label1.Text = "Nombres: ";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtNombres
             // 
-            txtNombres.Location = new Point(89, 70);
-            txtNombres.Margin = new Padding(3, 4, 3, 4);
+            txtNombres.Location = new Point(78, 52);
             txtNombres.Name = "txtNombres";
-            txtNombres.Size = new Size(254, 27);
+            txtNombres.Size = new Size(223, 23);
             txtNombres.TabIndex = 1;
             // 
             // txtApellidos
             // 
-            txtApellidos.Location = new Point(89, 136);
-            txtApellidos.Margin = new Padding(3, 4, 3, 4);
+            txtApellidos.Location = new Point(78, 102);
             txtApellidos.Name = "txtApellidos";
-            txtApellidos.Size = new Size(254, 27);
+            txtApellidos.Size = new Size(223, 23);
             txtApellidos.TabIndex = 4;
             // 
             // label2
             // 
             label2.Font = new Font("Segoe UI", 9F);
             label2.ForeColor = Color.BlueViolet;
-            label2.Location = new Point(89, 101);
+            label2.Location = new Point(78, 78);
             label2.Name = "label2";
-            label2.Size = new Size(114, 31);
+            label2.Size = new Size(100, 23);
             label2.TabIndex = 3;
             label2.Text = "Apellidos:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -87,19 +86,18 @@ namespace Vista
             // txtCelular
             // 
             txtCelular.ForeColor = Color.Black;
-            txtCelular.Location = new Point(89, 259);
-            txtCelular.Margin = new Padding(3, 4, 3, 4);
+            txtCelular.Location = new Point(78, 194);
             txtCelular.Name = "txtCelular";
-            txtCelular.Size = new Size(254, 27);
+            txtCelular.Size = new Size(223, 23);
             txtCelular.TabIndex = 6;
             // 
             // label3
             // 
             label3.Font = new Font("Segoe UI", 9F);
             label3.ForeColor = Color.BlueViolet;
-            label3.Location = new Point(89, 224);
+            label3.Location = new Point(78, 171);
             label3.Name = "label3";
-            label3.Size = new Size(114, 31);
+            label3.Size = new Size(100, 23);
             label3.TabIndex = 5;
             label3.Text = "Celular: ";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -108,9 +106,9 @@ namespace Vista
             // 
             label4.Font = new Font("Segoe UI", 9F);
             label4.ForeColor = Color.BlueViolet;
-            label4.Location = new Point(85, 417);
+            label4.Location = new Point(78, 322);
             label4.Name = "label4";
-            label4.Size = new Size(187, 31);
+            label4.Size = new Size(160, 23);
             label4.TabIndex = 7;
             label4.Text = "Fecha De Nacimiento : ";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -120,10 +118,9 @@ namespace Vista
             btnRegistrar.BackColor = Color.Indigo;
             btnRegistrar.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrar.ForeColor = SystemColors.ButtonFace;
-            btnRegistrar.Location = new Point(84, 497);
-            btnRegistrar.Margin = new Padding(3, 4, 3, 4);
+            btnRegistrar.Location = new Point(70, 423);
             btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(255, 75);
+            btnRegistrar.Size = new Size(231, 56);
             btnRegistrar.TabIndex = 11;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = false;
@@ -131,19 +128,18 @@ namespace Vista
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(89, 193);
-            txtCorreo.Margin = new Padding(3, 4, 3, 4);
+            txtCorreo.Location = new Point(78, 145);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(254, 27);
+            txtCorreo.Size = new Size(223, 23);
             txtCorreo.TabIndex = 13;
             // 
             // label6
             // 
             label6.Font = new Font("Segoe UI", 9F);
             label6.ForeColor = Color.BlueViolet;
-            label6.Location = new Point(89, 167);
+            label6.Location = new Point(78, 125);
             label6.Name = "label6";
-            label6.Size = new Size(114, 31);
+            label6.Size = new Size(100, 23);
             label6.TabIndex = 12;
             label6.Text = "Correo:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -152,9 +148,9 @@ namespace Vista
             // 
             label7.Font = new Font("Segoe UI", 9F);
             label7.ForeColor = Color.BlueViolet;
-            label7.Location = new Point(98, 290);
+            label7.Location = new Point(78, 220);
             label7.Name = "label7";
-            label7.Size = new Size(114, 31);
+            label7.Size = new Size(100, 23);
             label7.TabIndex = 14;
             label7.Text = "Direccion: ";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -162,43 +158,54 @@ namespace Vista
             // txtDireccion
             // 
             txtDireccion.ForeColor = Color.Black;
-            txtDireccion.Location = new Point(89, 320);
-            txtDireccion.Margin = new Padding(3, 4, 3, 4);
+            txtDireccion.Location = new Point(78, 240);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(254, 27);
+            txtDireccion.Size = new Size(223, 23);
             txtDireccion.TabIndex = 15;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(84, 463);
+            dateTimePicker1.Location = new Point(78, 347);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.Size = new Size(223, 23);
             dateTimePicker1.TabIndex = 16;
             // 
             // label5
             // 
             label5.Font = new Font("Segoe UI", 9F);
             label5.ForeColor = Color.BlueViolet;
-            label5.Location = new Point(98, 351);
+            label5.Location = new Point(78, 266);
             label5.Name = "label5";
-            label5.Size = new Size(114, 31);
+            label5.Size = new Size(100, 23);
             label5.TabIndex = 17;
             label5.Text = "Cedula: ";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtCedula
             // 
-            txtCedula.Location = new Point(85, 386);
-            txtCedula.Margin = new Padding(3, 4, 3, 4);
+            txtCedula.Location = new Point(78, 290);
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(254, 27);
+            txtCedula.Size = new Size(223, 23);
             txtCedula.TabIndex = 18;
             // 
-            // CrearClientes
+            // cbActivo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            cbActivo.AutoSize = true;
+            cbActivo.ForeColor = Color.BlueViolet;
+            cbActivo.Location = new Point(78, 384);
+            cbActivo.Name = "cbActivo";
+            cbActivo.Size = new Size(60, 19);
+            cbActivo.TabIndex = 19;
+            cbActivo.Text = "Activo";
+            cbActivo.UseVisualStyleBackColor = true;
+            // 
+            // ActualizarClientes
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 637);
+            ClientSize = new Size(395, 536);
+            Controls.Add(cbActivo);
             Controls.Add(txtCedula);
             Controls.Add(label5);
             Controls.Add(dateTimePicker1);
@@ -215,8 +222,7 @@ namespace Vista
             Controls.Add(txtNombres);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "CrearClientes";
+            Name = "ActualizarClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nuevo Empleado";
             Load += CrearEmpleado_Load;
@@ -246,5 +252,6 @@ namespace Vista
         private DateTimePicker dateTimePicker1;
         private Label label5;
         private TextBox txtCedula;
+        private CheckBox cbActivo;
     }
 }

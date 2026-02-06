@@ -65,6 +65,7 @@ namespace Controlador
 
         public List<Cliente> ListarClientes() => mdl.Listar();
         public List<Cliente> ListarClientesActivos() => mdl.ListarActivos();
+        public List<Cliente> ListarClientesInactivos() => mdl.ListarInactivos();
         public List<Cliente> BuscarClientes(string coincidencia) => mdl.Buscar(coincidencia);
         public void DesactivarCliente(int idCliente) => mdl.Desactivar(idCliente);
     }

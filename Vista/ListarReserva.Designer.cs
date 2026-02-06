@@ -43,7 +43,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(84, 118);
+            label1.Location = new Point(79, 82);
             label1.Name = "label1";
             label1.Size = new Size(88, 30);
             label1.TabIndex = 17;
@@ -55,7 +55,7 @@
             dgvReserva.BorderStyle = BorderStyle.Fixed3D;
             dgvReserva.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReserva.Columns.AddRange(new DataGridViewColumn[] { Cliente, Habitacion, FechaEntrada, FechaSalida });
-            dgvReserva.Location = new Point(84, 166);
+            dgvReserva.Location = new Point(79, 130);
             dgvReserva.Name = "dgvReserva";
             dgvReserva.RowHeadersWidth = 51;
             dgvReserva.Size = new Size(555, 212);
@@ -98,7 +98,7 @@
             btnEliminar.BackColor = Color.MediumVioletRed;
             btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(509, 100);
+            btnEliminar.Location = new Point(504, 64);
             btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(128, 51);
@@ -111,7 +111,7 @@
             btnActualizar.BackColor = Color.Indigo;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(374, 100);
+            btnActualizar.Location = new Point(369, 64);
             btnActualizar.Margin = new Padding(3, 4, 3, 4);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(128, 51);
@@ -123,7 +123,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(651, 484);
+            ClientSize = new Size(702, 428);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
             Controls.Add(label1);

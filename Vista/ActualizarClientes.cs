@@ -54,7 +54,7 @@ namespace Vista
                 cedula,
                 direccion,
                 fechaNac,
-                Clie.Estado,
+                cbActivo.Checked,
                 Clie.Id
             );
 
