@@ -174,6 +174,73 @@ namespace Datos
 
             reserva.IdPago = idPago;
         }
+        // ESTE ES EL METODO QUE TE FALTABA (BuscarPorId)
+        public Reserva BuscarPorId(int id)
+        {
+            Reserva reserva = null;
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Reserva WHERE Id = @id";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            reserva = Mapear(reader);
+                        }
+                    }
+                }
+            }
+            return reserva;
+        }
+
+        // ESTE TAMBIEN TE FALTABA (ExisteNumero)
+        public bool ExisteNumero(int numero, int exceptoId)
+        {
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT COUNT(1) FROM Habitacion WHERE Numhabitacion = @num AND Id != @exceptoId";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@num", numero);
+                    cmd.Parameters.AddWithValue("@exceptoId", exceptoId);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
+        
+        public List<TipoHabitacion> ListarTipos()
+        {
+            var lista = new List<TipoHabitacion>();
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM TipoHabitacion";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new TipoHabitacion(
+                                reader["Nombre"].ToString(),
+                                reader["Caracteristicas"].ToString(),
+                                Convert.ToInt32(reader["Capacidad"]),
+                                Convert.ToSingle(reader["Precio_noche"]),
+                                Convert.ToInt32(reader["Id_tipohabitacion"])
+                            ));
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
 
         private Reserva Mapear(SqlDataReader reader)
         {

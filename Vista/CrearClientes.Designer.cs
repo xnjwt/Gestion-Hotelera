@@ -120,7 +120,7 @@ namespace Vista
             btnRegistrar.BackColor = Color.Indigo;
             btnRegistrar.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrar.ForeColor = SystemColors.ButtonFace;
-            btnRegistrar.Location = new Point(84, 497);
+            btnRegistrar.Location = new Point(84, 519);
             btnRegistrar.Margin = new Padding(3, 4, 3, 4);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(255, 75);
@@ -152,7 +152,7 @@ namespace Vista
             // 
             label7.Font = new Font("Segoe UI", 9F);
             label7.ForeColor = Color.BlueViolet;
-            label7.Location = new Point(98, 290);
+            label7.Location = new Point(89, 290);
             label7.Name = "label7";
             label7.Size = new Size(114, 31);
             label7.TabIndex = 14;
@@ -179,7 +179,7 @@ namespace Vista
             // 
             label5.Font = new Font("Segoe UI", 9F);
             label5.ForeColor = Color.BlueViolet;
-            label5.Location = new Point(98, 351);
+            label5.Location = new Point(89, 351);
             label5.Name = "label5";
             label5.Size = new Size(114, 31);
             label5.TabIndex = 17;

@@ -30,13 +30,15 @@
         {
             label1 = new Label();
             dgvClientes = new DataGridView();
-            Nombres = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Celular = new DataGridViewTextBoxColumn();
-            Rol = new DataGridViewTextBoxColumn();
-            Turno = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             btnActualizar = new Button();
+            Nombres = new DataGridViewTextBoxColumn();
+            Apellidos = new DataGridViewTextBoxColumn();
+            Cedula = new DataGridViewTextBoxColumn();
+            Celular = new DataGridViewTextBoxColumn();
+            Direccion = new DataGridViewTextBoxColumn();
+            FechaNacimiento = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            btnDesactivar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(51, 57);
+            label1.Location = new Point(53, 88);
             label1.Name = "label1";
             label1.Size = new Size(119, 37);
             label1.TabIndex = 14;
@@ -55,13 +57,27 @@
             dgvClientes.BackgroundColor = Color.FromArgb(228, 191, 255);
             dgvClientes.BorderStyle = BorderStyle.Fixed3D;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Nombres, Correo, Celular, Rol, Turno, Estado });
-            dgvClientes.Location = new Point(1, 123);
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Nombres, Apellidos, Cedula, Celular, Direccion, FechaNacimiento, Correo });
+            dgvClientes.Location = new Point(53, 150);
             dgvClientes.Margin = new Padding(3, 4, 3, 4);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersWidth = 51;
-            dgvClientes.Size = new Size(750, 252);
+            dgvClientes.Size = new Size(1154, 252);
             dgvClientes.TabIndex = 15;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.BackColor = Color.Indigo;
+            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.ForeColor = SystemColors.ButtonFace;
+            btnActualizar.Location = new Point(945, 74);
+            btnActualizar.Margin = new Padding(3, 4, 3, 4);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(128, 51);
+            btnActualizar.TabIndex = 16;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // Nombres
             // 
@@ -71,65 +87,67 @@
             Nombres.Name = "Nombres";
             Nombres.Width = 200;
             // 
-            // Correo
+            // Apellidos
             // 
-            Correo.DataPropertyName = "Email";
-            Correo.HeaderText = "Correo";
-            Correo.MinimumWidth = 6;
-            Correo.Name = "Correo";
-            Correo.Width = 200;
+            Apellidos.HeaderText = "Apellidos";
+            Apellidos.MinimumWidth = 6;
+            Apellidos.Name = "Apellidos";
+            Apellidos.Width = 125;
+            // 
+            // Cedula
+            // 
+            Cedula.HeaderText = "Cedula";
+            Cedula.MinimumWidth = 6;
+            Cedula.Name = "Cedula";
+            Cedula.Width = 125;
             // 
             // Celular
             // 
-            Celular.DataPropertyName = "Celular";
             Celular.HeaderText = "Celular";
             Celular.MinimumWidth = 6;
             Celular.Name = "Celular";
             Celular.Width = 125;
             // 
-            // Rol
+            // Direccion
             // 
-            Rol.DataPropertyName = "Rol";
-            Rol.HeaderText = "Rol";
-            Rol.MinimumWidth = 6;
-            Rol.Name = "Rol";
-            Rol.Width = 125;
+            Direccion.HeaderText = "Direccion";
+            Direccion.MinimumWidth = 6;
+            Direccion.Name = "Direccion";
+            Direccion.Width = 140;
             // 
-            // Turno
+            // FechaNacimiento
             // 
-            Turno.DataPropertyName = "Turno";
-            Turno.HeaderText = "Turno";
-            Turno.MinimumWidth = 6;
-            Turno.Name = "Turno";
-            Turno.Width = 125;
+            FechaNacimiento.HeaderText = "FechaNacimiento";
+            FechaNacimiento.MinimumWidth = 6;
+            FechaNacimiento.Name = "FechaNacimiento";
+            FechaNacimiento.Width = 125;
             // 
-            // Estado
+            // Correo
             // 
-            Estado.DataPropertyName = "Estado";
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.Width = 125;
+            Correo.HeaderText = "Correo";
+            Correo.MinimumWidth = 6;
+            Correo.Name = "Correo";
+            Correo.Width = 250;
             // 
-            // btnActualizar
+            // btnDesactivar
             // 
-            btnActualizar.BackColor = Color.Indigo;
-            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(507, 55);
-            btnActualizar.Margin = new Padding(3, 4, 3, 4);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(128, 51);
-            btnActualizar.TabIndex = 16;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = false;
-            btnActualizar.Click += btnActualizar_Click;
+            btnDesactivar.BackColor = Color.MediumVioletRed;
+            btnDesactivar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDesactivar.ForeColor = SystemColors.ButtonFace;
+            btnDesactivar.Location = new Point(1079, 74);
+            btnDesactivar.Margin = new Padding(3, 4, 3, 4);
+            btnDesactivar.Name = "btnDesactivar";
+            btnDesactivar.Size = new Size(128, 51);
+            btnDesactivar.TabIndex = 17;
+            btnDesactivar.Text = "Desactivar";
+            btnDesactivar.UseVisualStyleBackColor = false;
             // 
             // ListarClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1282, 532);
+            Controls.Add(btnDesactivar);
             Controls.Add(btnActualizar);
             Controls.Add(dgvClientes);
             Controls.Add(label1);
@@ -144,12 +162,14 @@
 
         private Label label1;
         private DataGridView dgvClientes;
-        private DataGridViewTextBoxColumn Nombres;
-        private DataGridViewTextBoxColumn Correo;
-        private DataGridViewTextBoxColumn Celular;
-        private DataGridViewTextBoxColumn Rol;
-        private DataGridViewTextBoxColumn Turno;
-        private DataGridViewTextBoxColumn Estado;
         private Button btnActualizar;
+        private DataGridViewTextBoxColumn Nombres;
+        private DataGridViewTextBoxColumn Apellidos;
+        private DataGridViewTextBoxColumn Cedula;
+        private DataGridViewTextBoxColumn Celular;
+        private DataGridViewTextBoxColumn Direccion;
+        private DataGridViewTextBoxColumn FechaNacimiento;
+        private DataGridViewTextBoxColumn Correo;
+        private Button btnDesactivar;
     }
 }

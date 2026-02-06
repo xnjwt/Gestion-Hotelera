@@ -10,9 +10,8 @@ namespace Vista
     public partial class ActualizarClientes : Form
     {
         private ClienteControlador Clc { get; set; }
-        private Cliente Clie { get; set; } // Objeto cliente que recibimos para editar
+        private Cliente Clie { get; set; }
 
-        // El constructor recibe el controlador y el cliente seleccionado de la grilla
         public ActualizarClientes(ClienteControlador clc, Cliente clienteSeleccionado)
         {
             Clc = clc;
@@ -22,7 +21,6 @@ namespace Vista
 
         private void ActualizarCliente_Load(object sender, EventArgs e)
         {
-            // Cargamos los datos actuales del cliente en los cuadros de texto  a
             txtNombres.Text = Clie.Nombre;
             txtApellidos.Text = Clie.Apellido;
             txtCorreo.Text = Clie.Email;
@@ -38,7 +36,7 @@ namespace Vista
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            // 1. Captura de datos desde la interfaz
+            // Captura directa de datos
             string nombre = txtNombres.Text.Trim();
             string apellido = txtApellidos.Text.Trim();
             string email = txtCorreo.Text.Trim();
@@ -47,51 +45,25 @@ namespace Vista
             string direccion = txtDireccion.Text.Trim();
             DateTime fechaNac = dateTimePicker1.Value;
 
-            try
+            // Llamada directa al controlador
+            var huboError = Clc.validarCliente(
+                nombre,
+                apellido,
+                email,
+                celular,
+                cedula,
+                direccion,
+                fechaNac,
+                Clie.Estado,
+                Clie.Id
+            );
+
+            // Si el controlador dice que no hubo error, cerramos la ventana
+            if (!huboError)
             {
-                // 2. VALIDACIONES: Solo letras en Nombre y Apellido
-                if (!nombre.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) ||
-                    !apellido.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
-                {
-                    throw new ArgumentException("El nombre y apellido no pueden contener números.");
-                }
-
-                // 3. VALIDACIONES: Exactamente 10 caracteres en Cédula y Celular
-                if (cedula.Length != 10 || celular.Length != 10)
-                {
-                    throw new ArgumentException("La cédula y el celular deben tener exactamente 10 dígitos.");
-                }
-
-                // 4. Llamada al controlador pasando el ID del cliente para actualizar
-                // Se envía el ID actual (Clie.Id) para que el modelo sepa qué registro modificar
-                var huboError = Clc.validarCliente(
-                    nombre,
-                    apellido,
-                    email,
-                    celular,
-                    cedula,
-                    direccion,
-                    fechaNac,
-                    Clie.Estado,
-                    Clie.Id
-                );
-
-                if (!huboError)
-                {
-                    MessageBox.Show("Información del cliente actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
+                MessageBox.Show("Cliente actualizado correctamente.");
+                this.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-
-        private void CargarDatos()
-        {
-            throw new NotImplementedException();
         }
     }
 }
