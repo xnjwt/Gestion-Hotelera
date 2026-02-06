@@ -30,12 +30,12 @@
         {
             label1 = new Label();
             dgvReserva = new DataGridView();
-            btnEliminar = new Button();
-            btnActualizar = new Button();
             Cliente = new DataGridViewTextBoxColumn();
             Habitacion = new DataGridViewTextBoxColumn();
             FechaEntrada = new DataGridViewTextBoxColumn();
             FechaSalida = new DataGridViewTextBoxColumn();
+            btnEliminar = new Button();
+            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvReserva).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(80, 133);
+            label1.Location = new Point(96, 145);
             label1.Name = "label1";
             label1.Size = new Size(118, 37);
             label1.TabIndex = 17;
@@ -61,32 +61,6 @@
             dgvReserva.RowHeadersWidth = 51;
             dgvReserva.Size = new Size(552, 283);
             dgvReserva.TabIndex = 14;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.MediumVioletRed;
-            btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(520, 131);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(128, 51);
-            btnEliminar.TabIndex = 19;
-            btnEliminar.Text = "Eliminar ";
-            btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.BackColor = Color.Indigo;
-            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(385, 131);
-            btnActualizar.Margin = new Padding(3, 4, 3, 4);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(128, 51);
-            btnActualizar.TabIndex = 18;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = false;
             // 
             // Cliente
             // 
@@ -115,6 +89,32 @@
             FechaSalida.MinimumWidth = 6;
             FechaSalida.Name = "FechaSalida";
             FechaSalida.Width = 125;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.MediumVioletRed;
+            btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = SystemColors.ButtonFace;
+            btnEliminar.Location = new Point(520, 131);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(128, 51);
+            btnEliminar.TabIndex = 19;
+            btnEliminar.Text = "Eliminar ";
+            btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.BackColor = Color.Indigo;
+            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.ForeColor = SystemColors.ButtonFace;
+            btnActualizar.Location = new Point(385, 131);
+            btnActualizar.Margin = new Padding(3, 4, 3, 4);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(128, 51);
+            btnActualizar.TabIndex = 18;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
             // 
             // ListarReserva
             // 
