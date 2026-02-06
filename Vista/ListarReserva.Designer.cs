@@ -98,9 +98,10 @@
             btnEliminar.BackColor = Color.MediumVioletRed;
             btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(455, 98);
+            btnEliminar.Location = new Point(520, 131);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(112, 38);
+            btnEliminar.Size = new Size(128, 51);
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar ";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -110,9 +111,10 @@
             btnActualizar.BackColor = Color.Indigo;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(337, 98);
+            btnActualizar.Location = new Point(385, 131);
+            btnActualizar.Margin = new Padding(3, 4, 3, 4);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(112, 38);
+            btnActualizar.Size = new Size(128, 51);
             btnActualizar.TabIndex = 18;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;

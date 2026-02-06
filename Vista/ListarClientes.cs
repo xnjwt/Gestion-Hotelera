@@ -72,5 +72,10 @@ namespace Vista
             bs.DataSource = Clc.ListarClientes();
             dgvClientes.DataSource = bs;
         }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

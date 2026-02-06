@@ -44,10 +44,11 @@
             dgvReserva.BorderStyle = BorderStyle.Fixed3D;
             dgvReserva.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReserva.Columns.AddRange(new DataGridViewColumn[] { ReservaID, MontoPagar, MetodoPago });
-            dgvReserva.Location = new Point(105, 106);
+            dgvReserva.Location = new Point(120, 141);
+            dgvReserva.Margin = new Padding(3, 4, 3, 4);
             dgvReserva.Name = "dgvReserva";
             dgvReserva.RowHeadersWidth = 51;
-            dgvReserva.Size = new Size(408, 212);
+            dgvReserva.Size = new Size(449, 283);
             dgvReserva.TabIndex = 15;
             // 
             // ReservaID

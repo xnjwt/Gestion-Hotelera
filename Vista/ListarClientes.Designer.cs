@@ -58,11 +58,13 @@
             dgvClientes.BorderStyle = BorderStyle.Fixed3D;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Nombres, Apellidos, Cedula, Celular, Direccion, FechaNacimiento, Correo });
-            dgvClientes.Location = new Point(46, 112);
+            dgvClientes.Location = new Point(53, 150);
+            dgvClientes.Margin = new Padding(3, 4, 3, 4);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersWidth = 51;
-            dgvClientes.Size = new Size(1010, 189);
+            dgvClientes.Size = new Size(1165, 252);
             dgvClientes.TabIndex = 15;
+            dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
             // Nombres
             // 
@@ -86,7 +88,7 @@
             Cedula.HeaderText = "Cedula";
             Cedula.MinimumWidth = 6;
             Cedula.Name = "Cedula";
-            Cedula.Width = 125;
+            Cedula.Width = 150;
             // 
             // Celular
             // 
@@ -102,7 +104,7 @@
             Direccion.HeaderText = "Direccion";
             Direccion.MinimumWidth = 6;
             Direccion.Name = "Direccion";
-            Direccion.Width = 140;
+            Direccion.Width = 150;
             // 
             // FechaNacimiento
             // 
@@ -119,31 +121,6 @@
             Correo.MinimumWidth = 6;
             Correo.Name = "Correo";
             Correo.Width = 250;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.BackColor = Color.Indigo;
-            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(827, 56);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(112, 38);
-            btnActualizar.TabIndex = 16;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = false;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // btnDesactivar
-            // 
-            btnDesactivar.BackColor = Color.MediumVioletRed;
-            btnDesactivar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDesactivar.ForeColor = SystemColors.ButtonFace;
-            btnDesactivar.Location = new Point(944, 56);
-            btnDesactivar.Name = "btnDesactivar";
-            btnDesactivar.Size = new Size(112, 38);
-            btnDesactivar.TabIndex = 17;
-            btnDesactivar.Text = "Desactivar";
-            btnDesactivar.UseVisualStyleBackColor = false;
             // 
             // ListarClientes
             // 
