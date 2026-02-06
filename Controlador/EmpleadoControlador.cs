@@ -110,6 +110,11 @@ namespace Controlador
             return mdl.ListarActivos();
         }
 
+        public List<Entidades.Empleado> ListarEmpleadosInactivos()
+        {
+            return mdl.ListarInactivos();
+        }
+
         public void DespedirEmpleado(int idEmpleado)
         {
             mdl.Despedir(idEmpleado);

@@ -55,7 +55,10 @@ namespace Modelo
         {
             return Dts.ListarActivos();
         }
-
+        public List<Empleado> ListarInactivos()
+        {
+            return Dts.ListarInactivos();
+        }
         public Empleado BuscarPorId(int id)
         {
             return Dts.BuscarPorId(id);

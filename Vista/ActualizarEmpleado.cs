@@ -32,6 +32,7 @@ namespace Vista
             txtCelular.Text = Empl.Celular;
             cmbTurno.SelectedItem = Empl.Turno;
             cmbRol.SelectedItem = Empl.Rol;
+            cbActivo.Checked = Empl.Estado.Equals("activo") ? true : false;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -43,15 +44,20 @@ namespace Vista
                 txtCelular.Text,
                 (RolEmpleado)cmbRol.SelectedValue,
                 (TurnoEmpleado)cmbTurno.SelectedValue,
-                Empl.Estado, //TO DO: Agregar estado al formulario de actualizar
+                Empl.Estado,
                 Empl.Id
-                ); 
+                );
             if (!error)
             {
                 MessageBox.Show("Empleado actualizado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-            
+
+        }
+
+        private void cbActivo_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

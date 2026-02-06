@@ -18,16 +18,17 @@ namespace Vista
         private ClienteControlador Clic { get; set; }
         private ReservaControlador Resc { get; set; }
         private HabitacionControlador Habc { get; set; }
-
+        private TipoHabitacionControlador Tipohabc { get; set; }
         private PagoControlador Pagc { get; set; }
 
-        public Login(EmpleadoControlador empc, ClienteControlador clic, ReservaControlador resc, HabitacionControlador habc, PagoControlador pagc) 
+        public Login(EmpleadoControlador empc, ClienteControlador clic, ReservaControlador resc, HabitacionControlador habc, TipoHabitacionControlador TipoHabc, PagoControlador pagc) 
         {
             InitializeComponent();
             Empc = empc;
             Clic = clic;
             Resc = resc;
             Habc = habc;
+            Tipohabc = TipoHabc;
             Pagc = pagc;
 
         }
@@ -53,14 +54,14 @@ namespace Vista
                     break;
                 case RolEmpleado.Administrador:
                     this.Hide();
-                    var frmPrincipal = new PrincipalAdministracion(Empc,Clic, Habc, Resc,Pagc);
+                    var frmPrincipal = new PrincipalAdministracion(Empc,Clic, Habc, Tipohabc, Resc,Pagc);
                     frmPrincipal.ShowDialog();
                     this.Show();
                     break;
 
                 case RolEmpleado.Limpieza:
                     this.Hide();
-                    var frmPrincipalLimpieza = new PrincipalLimpieza(Habc);
+                    var frmPrincipalLimpieza = new PrincipalLimpieza(Habc, Tipohabc);
                     frmPrincipalLimpieza.ShowDialog();
                     this.Show();
                     break;

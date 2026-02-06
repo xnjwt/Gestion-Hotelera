@@ -39,11 +39,11 @@ namespace Vista
             }
 
             var empleado = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
-            ActualizarEmpleado frm = new (Empc, empleado);
+            ActualizarEmpleado frm = new(Empc, empleado);
             frm.ShowDialog();
             frm.Dispose();
-            bs.DataSource = null;
-            bs.DataSource = Empc.ListarEmpleados();
+
+            ActualizarEstado();
 
         }
 
@@ -64,19 +64,34 @@ namespace Vista
             int id = empleado.Id;
             Empc.DespedirEmpleado(id);
             MessageBox.Show("Empleado despedido correctamente.");
-            bs.DataSource = null;
-            bs.DataSource = Empc.ListarEmpleados();
-
-
-
-
-
+            ActualizarEstado();
         }
 
         private void ListarEmpleado_Load(object sender, EventArgs e)
         {
             bs.DataSource = Empc.ListarEmpleados();
             dgvEmpleados.DataSource = bs;
+            cmbEstado.SelectedIndex = 1;
+        }
+        private void ActualizarEstado()
+        {
+            bs.DataSource = null;
+            switch (cmbEstado.SelectedIndex)
+            {
+                case 0:
+                    bs.DataSource = Empc.ListarEmpleados();
+                    break;
+                case 1:
+                    bs.DataSource = Empc.ListarEmpleadosActivos();
+                    break;
+                case 2:
+                    bs.DataSource = Empc.ListarEmpleadosInactivos();
+                    break;
+            }
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActualizarEstado();
         }
     }
 }
