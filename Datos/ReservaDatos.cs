@@ -3,6 +3,7 @@ using Gestion_Hotelera;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Datos
 {
@@ -25,7 +26,40 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@fIn", reserva.FechaIngreso);
                     cmd.Parameters.AddWithValue("@fOut", reserva.FechaSalida);
                     cmd.Parameters.AddWithValue("@est", reserva.Estado.ToString());
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
+        public void Actualizar(Reserva reserva)
+        {
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "UPDATE Reserva SET ClienteId=@cId, HabitacionId=@hId, FechaIngreso=@fIn, FechaSalida=@fOut, Estado=@est WHERE Id=@id";
+
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@cId", reserva.ClienteId);
+                    cmd.Parameters.AddWithValue("@hId", reserva.HabitacionId);
+                    cmd.Parameters.AddWithValue("@fIn", reserva.FechaIngreso);
+                    cmd.Parameters.AddWithValue("@fOut", reserva.FechaSalida);
+                    cmd.Parameters.AddWithValue("@est", reserva.Estado.ToString());
+                    cmd.Parameters.AddWithValue("@id", reserva.Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "DELETE FROM Reserva WHERE Id = @id";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -34,12 +68,10 @@ namespace Datos
         public List<Reserva> Listar()
         {
             var lista = new List<Reserva>();
-
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
                 string query = "SELECT * FROM Reserva";
-
                 using (var cmd = new SqlCommand(query, conexion))
                 {
                     using (var reader = cmd.ExecuteReader())
@@ -57,11 +89,11 @@ namespace Datos
         public List<Reserva> ListarActivas()
         {
             var lista = new List<Reserva>();
-
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
-                string query = "SELECT * FROM Reserva WHERE Estado = 'activa' OR Estado = 'Confirmada'";
+                // Ajusté la query para que coincida con los estados de tu Enum
+                string query = "SELECT * FROM Reserva WHERE Estado = 'Pendiente' OR Estado = 'Confirmada'";
 
                 using (var cmd = new SqlCommand(query, conexion))
                 {
@@ -80,16 +112,13 @@ namespace Datos
         public Reserva BuscarPorId(int id)
         {
             Reserva reserva = null;
-
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
                 string query = "SELECT * FROM Reserva WHERE Id = @id";
-
                 using (var cmd = new SqlCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -105,16 +134,13 @@ namespace Datos
         public List<Reserva> Buscar(string coincidencia)
         {
             var lista = new List<Reserva>();
-
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
                 string query = "SELECT * FROM Reserva WHERE Estado LIKE @c";
-
                 using (var cmd = new SqlCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@c", "%" + coincidencia + "%");
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -130,16 +156,13 @@ namespace Datos
         public List<Reserva> BuscarPorCliente(int clienteId)
         {
             var lista = new List<Reserva>();
-
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
                 string query = "SELECT * FROM Reserva WHERE ClienteId = @id";
-
                 using (var cmd = new SqlCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", clienteId);
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -158,26 +181,18 @@ namespace Datos
             {
                 conexion.Open();
                 string query = "UPDATE Reserva SET IdPago = @pId WHERE Id = @rId";
-
                 using (var cmd = new SqlCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@pId", idPago);
                     cmd.Parameters.AddWithValue("@rId", reserva.Id);
-
-                    int filasAfectadas = cmd.ExecuteNonQuery();
-                    if (filasAfectadas == 0)
-                    {
-                        throw new InvalidOperationException("La reserva no existe.");
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
-
-            reserva.IdPago = idPago;
         }
 
         private Reserva Mapear(SqlDataReader reader)
         {
-            Reserva reserva = new Reserva(
+            var reserva = new Reserva(
                 Convert.ToInt32(reader["ClienteId"]),
                 Convert.ToInt32(reader["HabitacionId"]),
                 Convert.ToInt32(reader["EmpleadoId"]),
@@ -187,18 +202,12 @@ namespace Datos
             );
 
             if (reader["IdPago"] != DBNull.Value)
-            {
                 reserva.IdPago = Convert.ToInt32(reader["IdPago"]);
-            }
 
             if (Enum.TryParse(typeof(EstadoReserva), reader["Estado"].ToString(), out object estadoParsed))
-            {
                 reserva.Estado = (EstadoReserva)estadoParsed;
-            }
             else
-            {
                 reserva.Estado = EstadoReserva.Pendiente;
-            }
 
             return reserva;
         }

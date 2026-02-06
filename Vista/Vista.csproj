@@ -9,10 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CrearCliente.cs" />
+    <Compile Remove="CrearCliente.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Controlador\Controlador.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ActualizarClientes.cs" />
+    <Compile Update="CrearClientes.cs" />
     <Compile Update="PrincipalLimpieza.cs">
       <SubType>Form</SubType>
     </Compile>
