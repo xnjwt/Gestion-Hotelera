@@ -226,7 +226,7 @@ namespace Vista
 
         private void CrearEmpleado_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+          
         }
 
         #endregion

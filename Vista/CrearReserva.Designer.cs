@@ -1,7 +1,7 @@
 ﻿namespace Vista
 {
+    // El nombre debe ser CrearReserva para que coincida con tu archivo lógico
     partial class CrearReserva
-
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(255, 75);
             btnRegistrar.TabIndex = 12;
-            btnRegistrar.Text = "Crear Reserva ";
+            btnRegistrar.Text = "Crear Reserva";
             btnRegistrar.UseVisualStyleBackColor = false;
             btnRegistrar.Click += btnRegistrar_Click;
             // 
@@ -101,7 +101,6 @@
             // cmbClientes
             // 
             cmbClientes.FormattingEnabled = true;
-            cmbClientes.Items.AddRange(new object[] { "Recepción", "Limpieza", "Administrador" });
             cmbClientes.Location = new Point(166, 64);
             cmbClientes.Margin = new Padding(3, 4, 3, 4);
             cmbClientes.Name = "cmbClientes";
@@ -111,7 +110,6 @@
             // cmbHabitaciones
             // 
             cmbHabitaciones.FormattingEnabled = true;
-            cmbHabitaciones.Items.AddRange(new object[] { "Recepción", "Limpieza", "Administrador" });
             cmbHabitaciones.Location = new Point(166, 100);
             cmbHabitaciones.Margin = new Padding(3, 4, 3, 4);
             cmbHabitaciones.Name = "cmbHabitaciones";
@@ -134,7 +132,7 @@
             dtpSalida.Size = new Size(268, 27);
             dtpSalida.TabIndex = 20;
             // 
-            // btnRegistrarReserva
+            // CrearReserva
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -148,8 +146,12 @@
             Controls.Add(lblIngreso);
             Controls.Add(lblCliente);
             Controls.Add(btnRegistrar);
-            Name = "btnRegistrarReserva";
-            Text = "CrearReserva";
+            Name = "CrearReserva"; // Nombre del formulario corregido
+            Text = "Crear Reserva";
+
+            // CONEXIÓN DEL EVENTO LOAD (Fundamental para cargar los datos)
+            this.Load += new EventHandler(CrearReserva_Load);
+
             ResumeLayout(false);
         }
 
