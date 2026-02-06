@@ -43,9 +43,6 @@ namespace Vista
             clientesToolStripMenuItem = new ToolStripMenuItem();
             crearToolStripMenuItem1 = new ToolStripMenuItem();
             listarToolStripMenuItem3 = new ToolStripMenuItem();
-            reservaToolStripMenuItem = new ToolStripMenuItem();
-            reservarToolStripMenuItem = new ToolStripMenuItem();
-            listarToolStripMenuItem4 = new ToolStripMenuItem();
             pagosToolStripMenuItem = new ToolStripMenuItem();
             registrarToolStripMenuItem = new ToolStripMenuItem();
             pagarToolStripMenuItem = new ToolStripMenuItem();
@@ -58,7 +55,7 @@ namespace Vista
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { empleadoToolStripMenuItem, habitacionToolStripMenuItem, tipoDeHabToolStripMenuItem, clientesToolStripMenuItem, reservaToolStripMenuItem, pagosToolStripMenuItem, salirToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { empleadoToolStripMenuItem, habitacionToolStripMenuItem, tipoDeHabToolStripMenuItem, clientesToolStripMenuItem, pagosToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -140,37 +137,16 @@ namespace Vista
             // crearToolStripMenuItem1
             // 
             crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            crearToolStripMenuItem1.Size = new Size(127, 26);
+            crearToolStripMenuItem1.Size = new Size(224, 26);
             crearToolStripMenuItem1.Text = "Crear";
             crearToolStripMenuItem1.Click += crearToolStripMenuItem1_Click;
             // 
             // listarToolStripMenuItem3
             // 
             listarToolStripMenuItem3.Name = "listarToolStripMenuItem3";
-            listarToolStripMenuItem3.Size = new Size(127, 26);
+            listarToolStripMenuItem3.Size = new Size(224, 26);
             listarToolStripMenuItem3.Text = "Listar";
             listarToolStripMenuItem3.Click += listarToolStripMenuItem3_Click;
-            // 
-            // reservaToolStripMenuItem
-            // 
-            reservaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reservarToolStripMenuItem, listarToolStripMenuItem4 });
-            reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
-            reservaToolStripMenuItem.Size = new Size(74, 24);
-            reservaToolStripMenuItem.Text = "Reserva";
-            // 
-            // reservarToolStripMenuItem
-            // 
-            reservarToolStripMenuItem.Name = "reservarToolStripMenuItem";
-            reservarToolStripMenuItem.Size = new Size(152, 26);
-            reservarToolStripMenuItem.Text = "Reservar ";
-            reservarToolStripMenuItem.Click += reservarToolStripMenuItem_Click;
-            // 
-            // listarToolStripMenuItem4
-            // 
-            listarToolStripMenuItem4.Name = "listarToolStripMenuItem4";
-            listarToolStripMenuItem4.Size = new Size(152, 26);
-            listarToolStripMenuItem4.Text = "Listar";
-            listarToolStripMenuItem4.Click += listarToolStripMenuItem4_Click;
             // 
             // pagosToolStripMenuItem
             // 
@@ -253,9 +229,6 @@ namespace Vista
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem crearToolStripMenuItem1;
         private ToolStripMenuItem listarToolStripMenuItem3;
-        private ToolStripMenuItem reservaToolStripMenuItem;
-        private ToolStripMenuItem reservarToolStripMenuItem;
-        private ToolStripMenuItem listarToolStripMenuItem4;
         private ToolStripMenuItem pagosToolStripMenuItem;
         private ToolStripMenuItem registrarToolStripMenuItem;
         private ToolStripMenuItem pagarToolStripMenuItem;

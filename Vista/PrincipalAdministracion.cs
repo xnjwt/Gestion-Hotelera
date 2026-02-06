@@ -8,93 +8,66 @@ namespace Vista
 {
     public partial class PrincipalAdministracion : Form
     {
+        // Propiedad para el controlador de empleados recibido en el constructor
         EmpleadoControlador Empc { get; set; }
-
-        public PrincipalAdministracion(EmpleadoControlador empc)
+        ClienteControlador Clic { get; set; }
+        HabitacionControlador Habc { get; set; }
+        ReservaControlador Resc { get; set; }
+        PagoControlador Pagc { get; set; }
+        public PrincipalAdministracion(EmpleadoControlador empc,ClienteControlador clic, HabitacionControlador habc, ReservaControlador resc,PagoControlador pagc)
         {
-            Empc = empc;
             InitializeComponent();
+            Empc = empc;
+            Clic = clic;
+            Habc = habc;
+            Resc = resc;
+            Pagc = pagc;
         }
 
-        // --- SECCIÓN: CLIENTES ---
 
         private void crearToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var dCli = new ClientesDatos();
-            var mCli = new ClienteModelo(dCli);
-            var cCli = new ClienteControlador(mCli);
 
-            var frm = new CrearClientes(cCli);
+            var frm = new CrearClientes(Clic);
             frm.ShowDialog();
         }
 
         private void listarToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            var dCli = new ClientesDatos();
-            var mCli = new ClienteModelo(dCli);
-            var cCli = new ClienteControlador(mCli);
 
-            var frm = new ListarClientes(cCli);
+            var frm = new ListarClientes(Clic);
             frm.ShowDialog();
         }
 
-        // --- SECCIÓN: RESERVAS ---
 
         private void reservarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dRes = new ReservasDatos();
-            var mRes = new ReservaModelo(dRes);
-            var cRes = new ReservaControlador(mRes);
 
-            var dCli = new ClientesDatos();
-            var mCli = new ClienteModelo(dCli);
-            var cCli = new ClienteControlador(mCli);
 
-            var dHab = new HabitacionesDatos();
-            var mHab = new HabitacionModelo(dHab);
-            var cHab = new HabitacionControlador(mHab);
-
-            var frm = new CrearReserva(cRes, cCli, cHab);
-            frm.ShowDialog();
+            
         }
 
-        // CORRECCIÓN PARA ERROR CS7036 (Imagen 6570a9)
         private void listarToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            var dRes = new ReservasDatos();
-            var mRes = new ReservaModelo(dRes);
-            var cRes = new ReservaControlador(mRes);
 
-            var dCli = new ClientesDatos();
-            var mCli = new ClienteModelo(dCli);
-            var cCli = new ClienteControlador(mCli);
-
-            var dHab = new HabitacionesDatos();
-            var mHab = new HabitacionModelo(dHab);
-            var cHab = new HabitacionControlador(mHab);
-
-            // Se deben pasar los 3 controladores para que el Listar funcione (Imagen 6570a9)
-            var frm = new ListarReserva(cRes, cCli, cHab);
-            frm.ShowDialog();
         }
 
-        // --- SECCIÓN: PAGOS ---
 
         private void pagarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dPag = new PagosDatos();
-            var mPag = new PagoModelo(dPag);
-            var cPag = new PagoControlador(mPag);
 
-            var dRes = new ReservasDatos();
-            var mRes = new ReservaModelo(dRes);
-            var cRes = new ReservaControlador(mRes);
 
-            var frm = new CrearPago(cPag, cRes);
+            var frm = new CrearPago(Pagc, Resc);
             frm.ShowDialog();
         }
 
-        // --- SECCIÓN: EMPLEADOS ---
+        private void listarToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+
+            var frm = new ListarPagos(Pagc, Resc);
+            frm.ShowDialog();
+        }
+
 
         private void contratarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -108,12 +81,12 @@ namespace Vista
             frm.Show();
         }
 
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Métodos vacíos (Borradas las excepciones "NotImplemented")
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e) { }
         private void habitacionToolStripMenuItem_Click(object sender, EventArgs e) { }
         private void registrarNuevaToolStripMenuItem_Click(object sender, EventArgs e) { }

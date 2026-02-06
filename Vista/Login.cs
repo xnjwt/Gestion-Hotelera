@@ -15,13 +15,20 @@ namespace Vista
     public partial class Login : Form
     {
         private EmpleadoControlador Empc { get; set; }
+        private ClienteControlador Clic { get; set; }
+        private ReservaControlador Resc { get; set; }
+        private HabitacionControlador Habc { get; set; }
 
-        //Colocar los demás controladores que se necesiten
+        private PagoControlador Pagc { get; set; }
 
-        public Login(EmpleadoControlador empc) //Pasar por parámetro los demás controladores
+        public Login(EmpleadoControlador empc, ClienteControlador clic, ReservaControlador resc, HabitacionControlador habc, PagoControlador pagc) 
         {
             InitializeComponent();
             Empc = empc;
+            Clic = clic;
+            Resc = resc;
+            Habc = habc;
+            Pagc = pagc;
 
         }
 
@@ -40,20 +47,20 @@ namespace Vista
                 
                 case RolEmpleado.Recepcion:
                     this.Hide();
-                    var frmPrincipalRecepcion = new PrincipalRecepcion(empleadoLog);
+                    var frmPrincipalRecepcion = new PrincipalRecepcion(empleadoLog, Clic, Habc,Resc,Pagc);
                     frmPrincipalRecepcion.ShowDialog();
                     this.Show();
                     break;
                 case RolEmpleado.Administrador:
                     this.Hide();
-                    var frmPrincipal = new PrincipalAdministracion(Empc);
+                    var frmPrincipal = new PrincipalAdministracion(Empc,Clic, Habc, Resc,Pagc);
                     frmPrincipal.ShowDialog();
                     this.Show();
                     break;
 
                 case RolEmpleado.Limpieza:
                     this.Hide();
-                    var frmPrincipalLimpieza = new PrincipalLimpieza();
+                    var frmPrincipalLimpieza = new PrincipalLimpieza(Habc);
                     frmPrincipalLimpieza.ShowDialog();
                     this.Show();
                     break;

@@ -41,7 +41,6 @@
             listarToolStripMenuItem2 = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
-            reservaToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -59,7 +58,7 @@
             // 
             // reservaToolStripMenuItem
             // 
-            reservaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RegistrarReservaToolStripMenuItem, listarToolStripMenuItem, reservaToolStripMenuItem1 });
+            reservaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RegistrarReservaToolStripMenuItem, listarToolStripMenuItem });
             reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
             reservaToolStripMenuItem.Size = new Size(74, 24);
             reservaToolStripMenuItem.Text = "Reserva";
@@ -89,14 +88,14 @@
             // RegistrarToolStripMenuItem
             // 
             RegistrarToolStripMenuItem.Name = "RegistrarToolStripMenuItem";
-            RegistrarToolStripMenuItem.Size = new Size(127, 26);
+            RegistrarToolStripMenuItem.Size = new Size(224, 26);
             RegistrarToolStripMenuItem.Text = "Crear";
             RegistrarToolStripMenuItem.Click += registrarNuevaToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem1
             // 
             listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            listarToolStripMenuItem1.Size = new Size(127, 26);
+            listarToolStripMenuItem1.Size = new Size(224, 26);
             listarToolStripMenuItem1.Text = "Listar";
             listarToolStripMenuItem1.Click += listarToolStripMenuItem1_Click;
             // 
@@ -139,12 +138,6 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // reservaToolStripMenuItem1
-            // 
-            reservaToolStripMenuItem1.Name = "reservaToolStripMenuItem1";
-            reservaToolStripMenuItem1.Size = new Size(224, 26);
-            reservaToolStripMenuItem1.Text = "Reserva";
-            // 
             // PrincipalRecepcion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -179,6 +172,5 @@
         private ToolStripMenuItem listarToolStripMenuItem2;
         private PictureBox pictureBox1;
         private ToolStripMenuItem salirToolStripMenuItem;
-        private ToolStripMenuItem reservaToolStripMenuItem1;
     }
 }

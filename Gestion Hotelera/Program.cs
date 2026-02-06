@@ -18,16 +18,30 @@ namespace Gestion_Hotelera
             ApplicationConfiguration.Initialize();
 
             var empDatos = new EmpleadosDatos();
+            var dCli = new ClientesDatos();
+            var dRes = new ReservasDatos();
             var habDatos = new HabitacionesDatos();
             var tipoHabDatos = new TipoHabitacionesDatos();
+            var dPag = new PagosDatos();
 
             var empModelo = new EmpleadoModelo(empDatos);
+            var mCli = new ClienteModelo(dCli);
+            var mRes = new ReservaModelo(dRes);
+            var habModelo = new HabitacionModelo(habDatos);
+            
+            var mPag = new PagoModelo(dPag);
 
 
-            var empController = new EmpleadoControlador(empModelo);
+            var cEmp = new EmpleadoControlador(empModelo);
+            var cCli = new ClienteControlador(mCli);
+            var cRes = new ReservaControlador(mRes);
+            var cHab = new HabitacionControlador(habModelo);
+
+            var cPag = new PagoControlador(mPag);
 
 
-            var frm = new Login(empController);
+
+            var frm = new Login(cEmp, cCli, cRes, cHab, cPag);
 
             Application.Run(frm);
         }
