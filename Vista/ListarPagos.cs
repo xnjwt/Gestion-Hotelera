@@ -7,6 +7,7 @@ namespace Vista
 {
     public partial class ListarPagos : Form
     {
+        private BindingSource bs = new BindingSource();
         private PagoControlador Pgc;
         private ReservaControlador Rsc;
 
@@ -26,9 +27,9 @@ namespace Vista
 
         private void CargarGrid()
         {
-            // Vinculación directa de la lista al DataGridView
-            dgvReserva.DataSource = null; // Limpiar para refrescar
-            dgvReserva.DataSource = Pgc.ListarPagos();
+ 
+            bs.DataSource = null; 
+            bs.DataSource = Pgc.ListarPagos();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -72,6 +73,12 @@ namespace Vista
             {
                 MessageBox.Show("Seleccione un pago para eliminar.");
             }
+        }
+
+        private void ListarPagos_Load_1(object sender, EventArgs e)
+        {
+            bs.DataSource = Pgc.ListarPagos();
+            dgvReserva.DataSource = bs;
         }
     }
 }

@@ -30,8 +30,6 @@
         {
             label1 = new Label();
             dgvClientes = new DataGridView();
-            btnActualizar = new Button();
-            btnDesactivar = new Button();
             Nombres = new DataGridViewTextBoxColumn();
             Apellidos = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
@@ -39,6 +37,8 @@
             Direccion = new DataGridViewTextBoxColumn();
             FechaNacimiento = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
+            btnActualizar = new Button();
+            btnDesactivar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -46,9 +46,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(53, 88);
+            label1.Location = new Point(46, 66);
             label1.Name = "label1";
-            label1.Size = new Size(119, 37);
+            label1.Size = new Size(90, 30);
             label1.TabIndex = 14;
             label1.Text = "Clientes";
             // 
@@ -58,39 +58,11 @@
             dgvClientes.BorderStyle = BorderStyle.Fixed3D;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Nombres, Apellidos, Cedula, Celular, Direccion, FechaNacimiento, Correo });
-            dgvClientes.Location = new Point(53, 150);
-            dgvClientes.Margin = new Padding(3, 4, 3, 4);
+            dgvClientes.Location = new Point(46, 112);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersWidth = 51;
-            dgvClientes.Size = new Size(1154, 252);
+            dgvClientes.Size = new Size(1010, 189);
             dgvClientes.TabIndex = 15;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.BackColor = Color.Indigo;
-            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(945, 74);
-            btnActualizar.Margin = new Padding(3, 4, 3, 4);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(128, 51);
-            btnActualizar.TabIndex = 16;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = false;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // btnDesactivar
-            // 
-            btnDesactivar.BackColor = Color.MediumVioletRed;
-            btnDesactivar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDesactivar.ForeColor = SystemColors.ButtonFace;
-            btnDesactivar.Location = new Point(1079, 74);
-            btnDesactivar.Margin = new Padding(3, 4, 3, 4);
-            btnDesactivar.Name = "btnDesactivar";
-            btnDesactivar.Size = new Size(128, 51);
-            btnDesactivar.TabIndex = 17;
-            btnDesactivar.Text = "Desactivar";
-            btnDesactivar.UseVisualStyleBackColor = false;
             // 
             // Nombres
             // 
@@ -148,17 +120,44 @@
             Correo.Name = "Correo";
             Correo.Width = 250;
             // 
+            // btnActualizar
+            // 
+            btnActualizar.BackColor = Color.Indigo;
+            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.ForeColor = SystemColors.ButtonFace;
+            btnActualizar.Location = new Point(827, 56);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(112, 38);
+            btnActualizar.TabIndex = 16;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnDesactivar
+            // 
+            btnDesactivar.BackColor = Color.MediumVioletRed;
+            btnDesactivar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDesactivar.ForeColor = SystemColors.ButtonFace;
+            btnDesactivar.Location = new Point(944, 56);
+            btnDesactivar.Name = "btnDesactivar";
+            btnDesactivar.Size = new Size(112, 38);
+            btnDesactivar.TabIndex = 17;
+            btnDesactivar.Text = "Desactivar";
+            btnDesactivar.UseVisualStyleBackColor = false;
+            // 
             // ListarClientes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1282, 532);
+            ClientSize = new Size(1122, 399);
             Controls.Add(btnDesactivar);
             Controls.Add(btnActualizar);
             Controls.Add(dgvClientes);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ListarClientes";
             Text = "ListarClientes";
+            Load += ListarClientes_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();

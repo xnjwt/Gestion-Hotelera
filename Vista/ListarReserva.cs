@@ -7,6 +7,7 @@ namespace Vista
 {
     public partial class ListarReserva : Form
     {
+        private BindingSource bs = new BindingSource();
         private ReservaControlador Rsc;
         private ClienteControlador Clc;
         private HabitacionControlador Hbc;
@@ -27,8 +28,8 @@ namespace Vista
         private void CargarGrid()
         {
             // Usamos dgvReserva (singular) como está en tu diseño
-            dgvReserva.DataSource = null;
-            dgvReserva.DataSource = Rsc.ListarReservas();
+            bs.DataSource = null;
+            bs.DataSource = Rsc.ListarReservas();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -65,6 +66,12 @@ namespace Vista
             {
                 MessageBox.Show("Seleccione una reserva para eliminar.");
             }
+        }
+
+        private void ListarReserva_Load_1(object sender, EventArgs e)
+        {
+            bs.DataSource = Rsc.ListarReservas();
+            dgvReserva.DataSource = bs;
         }
     }
 }

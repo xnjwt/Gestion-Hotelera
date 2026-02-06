@@ -64,7 +64,11 @@ namespace Vista
         private void CargarDatos()
         {
             bs.DataSource = null;
-            // Obtiene la lista actualizada desde el controlador
+            bs.DataSource = Clc.ListarClientes();
+        }
+
+        private void ListarClientes_Load_1(object sender, EventArgs e)
+        {
             bs.DataSource = Clc.ListarClientes();
             dgvClientes.DataSource = bs;
         }
