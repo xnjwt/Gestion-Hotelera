@@ -25,7 +25,28 @@ namespace Vista
             CargarDatos();
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+
+
+    
+
+        private void CargarDatos()
+        {
+            bs.DataSource = null;
+            bs.DataSource = Clc.ListarClientes();
+        }
+
+        private void ListarClientes_Load_1(object sender, EventArgs e)
+        {
+            bs.DataSource = Clc.ListarClientes();
+            dgvClientes.DataSource = bs;
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
         {
             if (dgvClientes.CurrentRow is null)
             {
@@ -40,33 +61,29 @@ namespace Vista
             MessageBox.Show($"Abriendo edición para: {cliente.Nombre}\nFecha Nacimiento: {fecha}");
 
             CargarDatos();
+
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnDesactivar_Click(object sender, EventArgs e)
         {
-            if (dgvClientes.CurrentRow is null)
             {
-                MessageBox.Show("Seleccione un cliente para desactivar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (dgvClientes.CurrentRow is null)
+                {
+                    MessageBox.Show("Seleccione un cliente para desactivar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var respuesta = MessageBox.Show("¿Está seguro que desea desactivar el cliente seleccionado?", "Confirmar Acción", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Cancel) return;
+
+                var cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+                Clc.DesactivarCliente(cliente.Id);
+
+                MessageBox.Show("Cliente desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarDatos();
             }
 
-            var respuesta = MessageBox.Show("¿Está seguro que desea desactivar el cliente seleccionado?", "Confirmar Acción", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (respuesta == DialogResult.Cancel) return;
-
-            var cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-            Clc.DesactivarCliente(cliente.Id);
-
-            MessageBox.Show("Cliente desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarDatos();
-        }
-
-        private void CargarDatos()
-        {
-            bs.DataSource = null;
-            // Obtiene la lista actualizada desde el controlador
-            bs.DataSource = Clc.ListarClientes();
-            dgvClientes.DataSource = bs;
         }
     }
 }

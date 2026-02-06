@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             dgvReserva = new DataGridView();
-            label1 = new Label();
-            btnEliminar = new Button();
-            btnActualizar = new Button();
             ReservaID = new DataGridViewTextBoxColumn();
             MontoPagar = new DataGridViewTextBoxColumn();
             MetodoPago = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            btnEliminar = new Button();
+            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvReserva).BeginInit();
             SuspendLayout();
             // 
@@ -44,12 +44,36 @@
             dgvReserva.BorderStyle = BorderStyle.Fixed3D;
             dgvReserva.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReserva.Columns.AddRange(new DataGridViewColumn[] { ReservaID, MontoPagar, MetodoPago });
-            dgvReserva.Location = new Point(120, 141);
-            dgvReserva.Margin = new Padding(3, 4, 3, 4);
+            dgvReserva.Location = new Point(120, 159);
+            dgvReserva.Margin = new Padding(3, 5, 3, 5);
             dgvReserva.Name = "dgvReserva";
             dgvReserva.RowHeadersWidth = 51;
-            dgvReserva.Size = new Size(466, 283);
+            dgvReserva.Size = new Size(455, 203);
             dgvReserva.TabIndex = 15;
+            // 
+            // ReservaID
+            // 
+            ReservaID.DataPropertyName = "ReservaID";
+            ReservaID.HeaderText = "ReservaID";
+            ReservaID.MinimumWidth = 6;
+            ReservaID.Name = "ReservaID";
+            ReservaID.Width = 125;
+            // 
+            // MontoPagar
+            // 
+            MontoPagar.DataPropertyName = "MontoTotal";
+            MontoPagar.HeaderText = "MontoPagar";
+            MontoPagar.MinimumWidth = 6;
+            MontoPagar.Name = "MontoPagar";
+            MontoPagar.Width = 125;
+            // 
+            // MetodoPago
+            // 
+            MetodoPago.DataPropertyName = "Metodo";
+            MetodoPago.HeaderText = "MetodoPago";
+            MetodoPago.MinimumWidth = 6;
+            MetodoPago.Name = "MetodoPago";
+            MetodoPago.Width = 125;
             // 
             // label1
             // 
@@ -80,7 +104,7 @@
             btnActualizar.BackColor = Color.Indigo;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(324, 72);
+            btnActualizar.Location = new Point(325, 72);
             btnActualizar.Margin = new Padding(3, 4, 3, 4);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(128, 51);
@@ -89,41 +113,18 @@
             btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
-            // ReservaID
-            // 
-            ReservaID.DataPropertyName = "ReservaID";
-            ReservaID.HeaderText = "ReservaID";
-            ReservaID.MinimumWidth = 6;
-            ReservaID.Name = "ReservaID";
-            ReservaID.Width = 125;
-            // 
-            // MontoPagar
-            // 
-            MontoPagar.DataPropertyName = "MontoTotal";
-            MontoPagar.HeaderText = "MontoPagar";
-            MontoPagar.MinimumWidth = 6;
-            MontoPagar.Name = "MontoPagar";
-            MontoPagar.Width = 125;
-            // 
-            // MetodoPago
-            // 
-            MetodoPago.DataPropertyName = "Metodo";
-            MetodoPago.HeaderText = "MetodoPago";
-            MetodoPago.MinimumWidth = 6;
-            MetodoPago.Name = "MetodoPago";
-            MetodoPago.Width = 125;
-            // 
             // ListarPagos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(685, 504);
+            ClientSize = new Size(702, 504);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
             Controls.Add(label1);
             Controls.Add(dgvReserva);
             Name = "ListarPagos";
             Text = "ListarPagos";
+            Load += ListarPagos_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvReserva).EndInit();
             ResumeLayout(false);
             PerformLayout();

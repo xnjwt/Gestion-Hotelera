@@ -136,7 +136,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(548, 450);
+            ClientSize = new Size(519, 450);
             Controls.Add(dtpSalida);
             Controls.Add(dtpIngreso);
             Controls.Add(cmbHabitaciones);
@@ -146,12 +146,9 @@
             Controls.Add(lblIngreso);
             Controls.Add(lblCliente);
             Controls.Add(btnRegistrar);
-            Name = "CrearReserva"; // Nombre del formulario corregido
+            Name = "CrearReserva";
             Text = "Crear Reserva";
-
-            // CONEXIÓN DEL EVENTO LOAD (Fundamental para cargar los datos)
-            this.Load += new EventHandler(CrearReserva_Load);
-
+            Load += CrearReserva_Load;
             ResumeLayout(false);
         }
 
