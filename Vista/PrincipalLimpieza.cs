@@ -13,10 +13,10 @@ namespace Vista
 {
     public partial class PrincipalLimpieza : Form
     {
-
-        public PrincipalLimpieza() //Agregar los demás controladores necesarios
+        private HabitacionControlador Habc { get; set; }
+        public PrincipalLimpieza(HabitacionControlador habc) 
         {
-
+            Habc = habc;
 
             InitializeComponent();
         }

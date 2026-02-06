@@ -47,10 +47,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { reservaToolStripMenuItem, ClientesToolStripMenuItem, PagosToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(914, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -58,20 +60,20 @@
             // 
             reservaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RegistrarReservaToolStripMenuItem, listarToolStripMenuItem });
             reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
-            reservaToolStripMenuItem.Size = new Size(59, 20);
+            reservaToolStripMenuItem.Size = new Size(74, 24);
             reservaToolStripMenuItem.Text = "Reserva";
             // 
             // RegistrarReservaToolStripMenuItem
             // 
             RegistrarReservaToolStripMenuItem.Name = "RegistrarReservaToolStripMenuItem";
-            RegistrarReservaToolStripMenuItem.Size = new Size(180, 22);
+            RegistrarReservaToolStripMenuItem.Size = new Size(224, 26);
             RegistrarReservaToolStripMenuItem.Text = "Registrar";
             RegistrarReservaToolStripMenuItem.Click += contratarToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem
             // 
             listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            listarToolStripMenuItem.Size = new Size(180, 22);
+            listarToolStripMenuItem.Size = new Size(224, 26);
             listarToolStripMenuItem.Text = "Listar";
             listarToolStripMenuItem.Click += listarToolStripMenuItem_Click;
             // 
@@ -79,21 +81,21 @@
             // 
             ClientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RegistrarToolStripMenuItem, listarToolStripMenuItem1 });
             ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem";
-            ClientesToolStripMenuItem.Size = new Size(61, 20);
+            ClientesToolStripMenuItem.Size = new Size(75, 24);
             ClientesToolStripMenuItem.Text = "Clientes";
             ClientesToolStripMenuItem.Click += habitacionToolStripMenuItem_Click;
             // 
             // RegistrarToolStripMenuItem
             // 
             RegistrarToolStripMenuItem.Name = "RegistrarToolStripMenuItem";
-            RegistrarToolStripMenuItem.Size = new Size(180, 22);
+            RegistrarToolStripMenuItem.Size = new Size(224, 26);
             RegistrarToolStripMenuItem.Text = "Crear";
             RegistrarToolStripMenuItem.Click += registrarNuevaToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem1
             // 
             listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            listarToolStripMenuItem1.Size = new Size(180, 22);
+            listarToolStripMenuItem1.Size = new Size(224, 26);
             listarToolStripMenuItem1.Text = "Listar";
             listarToolStripMenuItem1.Click += listarToolStripMenuItem1_Click;
             // 
@@ -101,48 +103,50 @@
             // 
             PagosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearToolStripMenuItem, listarToolStripMenuItem2 });
             PagosToolStripMenuItem.Name = "PagosToolStripMenuItem";
-            PagosToolStripMenuItem.Size = new Size(51, 20);
+            PagosToolStripMenuItem.Size = new Size(62, 24);
             PagosToolStripMenuItem.Text = "Pagos";
             // 
             // crearToolStripMenuItem
             // 
             crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            crearToolStripMenuItem.Size = new Size(180, 22);
+            crearToolStripMenuItem.Size = new Size(151, 26);
             crearToolStripMenuItem.Text = "Registrar";
             crearToolStripMenuItem.Click += crearToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem2
             // 
             listarToolStripMenuItem2.Name = "listarToolStripMenuItem2";
-            listarToolStripMenuItem2.Size = new Size(180, 22);
+            listarToolStripMenuItem2.Size = new Size(151, 26);
             listarToolStripMenuItem2.Text = "Listar";
             listarToolStripMenuItem2.Click += listarToolStripMenuItem2_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(41, 20);
+            salirToolStripMenuItem.Size = new Size(52, 24);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(61, 27);
+            pictureBox1.Location = new Point(70, 36);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(669, 425);
+            pictureBox1.Size = new Size(765, 567);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // PrincipalRecepcion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(pictureBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "PrincipalRecepcion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Principal";

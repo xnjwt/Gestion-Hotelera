@@ -26,6 +26,19 @@ namespace Datos
                 }
             }
         }
+        public void Eliminar(int id)
+        {
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "DELETE FROM Pago WHERE Id = @id";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
         public List<Pago> Listar()
         {
