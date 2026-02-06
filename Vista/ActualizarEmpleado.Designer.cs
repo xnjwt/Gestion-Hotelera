@@ -41,6 +41,7 @@
             btnRegistrar = new Button();
             txtContrasena = new TextBox();
             label6 = new Label();
+            cbActivo = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -143,7 +144,7 @@
             btnRegistrar.BackColor = Color.Indigo;
             btnRegistrar.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrar.ForeColor = SystemColors.ButtonFace;
-            btnRegistrar.Location = new Point(86, 373);
+            btnRegistrar.Location = new Point(86, 398);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(223, 56);
             btnRegistrar.TabIndex = 11;
@@ -169,11 +170,24 @@
             label6.Text = "Contraseña: ";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // cbActivo
+            // 
+            cbActivo.AutoSize = true;
+            cbActivo.ForeColor = Color.BlueViolet;
+            cbActivo.Location = new Point(86, 356);
+            cbActivo.Name = "cbActivo";
+            cbActivo.Size = new Size(60, 19);
+            cbActivo.TabIndex = 16;
+            cbActivo.Text = "Activo";
+            cbActivo.UseVisualStyleBackColor = true;
+            cbActivo.CheckedChanged += cbActivo_CheckedChanged;
+            // 
             // ActualizarEmpleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(395, 481);
+            ClientSize = new Size(395, 506);
+            Controls.Add(cbActivo);
             Controls.Add(txtContrasena);
             Controls.Add(label6);
             Controls.Add(btnRegistrar);
@@ -211,5 +225,6 @@
         private Button btnRegistrar;
         private TextBox txtContrasena;
         private Label label6;
+        private CheckBox cbActivo;
     }
 }

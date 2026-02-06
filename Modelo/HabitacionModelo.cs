@@ -56,4 +56,39 @@ namespace Modelo
             return Dts.ListarTipos();
         }
     }
+    public class TipoHabitacionModelo
+    {
+        TipoHabitacionesDatos Dts { get; set; }
+        public TipoHabitacionModelo(TipoHabitacionesDatos dts)
+        {
+            Dts = dts;
+        }
+        public List<TipoHabitacion> Listar()
+        {
+            return Dts.Listar();
+        }
+        public List<String> ListarNombresTipoHabitacion()
+        {
+            return Dts.ListarNombresTipoHabitacion();
+        }
+
+        public void Guardar(TipoHabitacion tipoHabitacion)
+        {
+            if (tipoHabitacion == null) throw new ArgumentNullException(nameof(tipoHabitacion));
+            Dts.Guardar(tipoHabitacion);
+        }
+
+        public void Actualizar(Entidades.TipoHabitacion tipoHabitacionActualizado)
+        {
+            Dts.Actualizar(tipoHabitacionActualizado);
+        }
+
+        public void Eliminar(int idTipoHabitacion)
+        {
+            Dts.Eliminar(idTipoHabitacion);
+        }
+
+
+
+    }
 }

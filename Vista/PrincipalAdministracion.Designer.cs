@@ -41,11 +41,9 @@ namespace Vista
             crearToolStripMenuItem = new ToolStripMenuItem();
             listarToolStripMenuItem2 = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
-            crearToolStripMenuItem1 = new ToolStripMenuItem();
             listarToolStripMenuItem3 = new ToolStripMenuItem();
             pagosToolStripMenuItem = new ToolStripMenuItem();
             registrarToolStripMenuItem = new ToolStripMenuItem();
-            pagarToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
@@ -55,11 +53,10 @@ namespace Vista
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { empleadoToolStripMenuItem, habitacionToolStripMenuItem, tipoDeHabToolStripMenuItem, clientesToolStripMenuItem, pagosToolStripMenuItem, salirToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { empleadoToolStripMenuItem, tipoDeHabToolStripMenuItem, habitacionToolStripMenuItem, clientesToolStripMenuItem, pagosToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(914, 30);
+            menuStrip1.Size = new Size(800, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -67,20 +64,20 @@ namespace Vista
             // 
             empleadoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contratarToolStripMenuItem, listarToolStripMenuItem });
             empleadoToolStripMenuItem.Name = "empleadoToolStripMenuItem";
-            empleadoToolStripMenuItem.Size = new Size(91, 24);
+            empleadoToolStripMenuItem.Size = new Size(72, 20);
             empleadoToolStripMenuItem.Text = "Empleado";
             // 
             // contratarToolStripMenuItem
             // 
             contratarToolStripMenuItem.Name = "contratarToolStripMenuItem";
-            contratarToolStripMenuItem.Size = new Size(154, 26);
+            contratarToolStripMenuItem.Size = new Size(180, 22);
             contratarToolStripMenuItem.Text = "Contratar";
             contratarToolStripMenuItem.Click += contratarToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem
             // 
             listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            listarToolStripMenuItem.Size = new Size(154, 26);
+            listarToolStripMenuItem.Size = new Size(180, 22);
             listarToolStripMenuItem.Text = "Listar";
             listarToolStripMenuItem.Click += listarToolStripMenuItem_Click;
             // 
@@ -88,21 +85,21 @@ namespace Vista
             // 
             habitacionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarNuevaToolStripMenuItem, listarToolStripMenuItem1 });
             habitacionToolStripMenuItem.Name = "habitacionToolStripMenuItem";
-            habitacionToolStripMenuItem.Size = new Size(96, 24);
+            habitacionToolStripMenuItem.Size = new Size(77, 20);
             habitacionToolStripMenuItem.Text = "Habitacion";
             habitacionToolStripMenuItem.Click += habitacionToolStripMenuItem_Click;
             // 
             // registrarNuevaToolStripMenuItem
             // 
             registrarNuevaToolStripMenuItem.Name = "registrarNuevaToolStripMenuItem";
-            registrarNuevaToolStripMenuItem.Size = new Size(194, 26);
+            registrarNuevaToolStripMenuItem.Size = new Size(180, 22);
             registrarNuevaToolStripMenuItem.Text = "Registrar nueva";
             registrarNuevaToolStripMenuItem.Click += registrarNuevaToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem1
             // 
             listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            listarToolStripMenuItem1.Size = new Size(194, 26);
+            listarToolStripMenuItem1.Size = new Size(180, 22);
             listarToolStripMenuItem1.Text = "Listar";
             listarToolStripMenuItem1.Click += listarToolStripMenuItem1_Click;
             // 
@@ -110,92 +107,76 @@ namespace Vista
             // 
             tipoDeHabToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearToolStripMenuItem, listarToolStripMenuItem2 });
             tipoDeHabToolStripMenuItem.Name = "tipoDeHabToolStripMenuItem";
-            tipoDeHabToolStripMenuItem.Size = new Size(109, 24);
+            tipoDeHabToolStripMenuItem.Size = new Size(87, 20);
             tipoDeHabToolStripMenuItem.Text = "Tipo de Hab.";
             // 
             // crearToolStripMenuItem
             // 
             crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            crearToolStripMenuItem.Size = new Size(127, 26);
+            crearToolStripMenuItem.Size = new Size(180, 22);
             crearToolStripMenuItem.Text = "Crear";
             crearToolStripMenuItem.Click += crearToolStripMenuItem_Click;
             // 
             // listarToolStripMenuItem2
             // 
             listarToolStripMenuItem2.Name = "listarToolStripMenuItem2";
-            listarToolStripMenuItem2.Size = new Size(127, 26);
+            listarToolStripMenuItem2.Size = new Size(180, 22);
             listarToolStripMenuItem2.Text = "Listar";
             listarToolStripMenuItem2.Click += listarToolStripMenuItem2_Click;
             // 
             // clientesToolStripMenuItem
             // 
-            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearToolStripMenuItem1, listarToolStripMenuItem3 });
+            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listarToolStripMenuItem3 });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(75, 24);
+            clientesToolStripMenuItem.Size = new Size(61, 20);
             clientesToolStripMenuItem.Text = "Clientes";
-            // 
-            // crearToolStripMenuItem1
-            // 
-            crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            crearToolStripMenuItem1.Size = new Size(224, 26);
-            crearToolStripMenuItem1.Text = "Crear";
-            crearToolStripMenuItem1.Click += crearToolStripMenuItem1_Click;
             // 
             // listarToolStripMenuItem3
             // 
             listarToolStripMenuItem3.Name = "listarToolStripMenuItem3";
-            listarToolStripMenuItem3.Size = new Size(224, 26);
+            listarToolStripMenuItem3.Size = new Size(180, 22);
             listarToolStripMenuItem3.Text = "Listar";
             listarToolStripMenuItem3.Click += listarToolStripMenuItem3_Click;
             // 
             // pagosToolStripMenuItem
             // 
-            pagosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarToolStripMenuItem, pagarToolStripMenuItem });
+            pagosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarToolStripMenuItem });
             pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            pagosToolStripMenuItem.Size = new Size(62, 24);
+            pagosToolStripMenuItem.Size = new Size(51, 20);
             pagosToolStripMenuItem.Text = "Pagos";
             // 
             // registrarToolStripMenuItem
             // 
             registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
-            registrarToolStripMenuItem.Size = new Size(224, 26);
+            registrarToolStripMenuItem.Size = new Size(180, 22);
             registrarToolStripMenuItem.Text = "Listar";
             registrarToolStripMenuItem.Click += registrarToolStripMenuItem_Click;
-            // 
-            // pagarToolStripMenuItem
-            // 
-            pagarToolStripMenuItem.Name = "pagarToolStripMenuItem";
-            pagarToolStripMenuItem.Size = new Size(224, 26);
-            pagarToolStripMenuItem.Text = "Pagar";
-            pagarToolStripMenuItem.Click += pagarToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(52, 24);
+            salirToolStripMenuItem.Size = new Size(41, 20);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(70, 36);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(61, 27);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(765, 567);
+            pictureBox1.Size = new Size(669, 425);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // PrincipalAdministracion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(pictureBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "PrincipalAdministracion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Principal";
@@ -209,7 +190,8 @@ namespace Vista
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+            var frm = new ListarPagos(Pagc, Resc);
+            frm.ShowDialog();
         }
 
         #endregion
@@ -227,10 +209,8 @@ namespace Vista
         private PictureBox pictureBox1;
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
-        private ToolStripMenuItem crearToolStripMenuItem1;
         private ToolStripMenuItem listarToolStripMenuItem3;
         private ToolStripMenuItem pagosToolStripMenuItem;
         private ToolStripMenuItem registrarToolStripMenuItem;
-        private ToolStripMenuItem pagarToolStripMenuItem;
     }
 }

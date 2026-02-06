@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             dgvEmpleados = new DataGridView();
+            btnActualizar = new Button();
+            btnEliminar = new Button();
+            label1 = new Label();
+            cmbEstado = new ComboBox();
             Nombres = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
             Celular = new DataGridViewTextBoxColumn();
             Rol = new DataGridViewTextBoxColumn();
             Turno = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
-            btnActualizar = new Button();
-            btnEliminar = new Button();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
             // 
@@ -46,12 +46,58 @@
             dgvEmpleados.BackgroundColor = Color.FromArgb(228, 191, 255);
             dgvEmpleados.BorderStyle = BorderStyle.Fixed3D;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { Nombres, Correo, Celular, Rol, Turno, Estado });
+            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { Nombres, Correo, Celular, Rol, Turno });
             dgvEmpleados.Location = new Point(71, 128);
             dgvEmpleados.Name = "dgvEmpleados";
-            dgvEmpleados.Size = new Size(843, 225);
+            dgvEmpleados.Size = new Size(745, 225);
             dgvEmpleados.TabIndex = 0;
             dgvEmpleados.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.BackColor = Color.Indigo;
+            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.ForeColor = SystemColors.ButtonFace;
+            btnActualizar.Location = new Point(585, 72);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(112, 38);
+            btnActualizar.TabIndex = 11;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.MediumVioletRed;
+            btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = SystemColors.ButtonFace;
+            btnEliminar.Location = new Point(703, 72);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(112, 38);
+            btnEliminar.TabIndex = 12;
+            btnEliminar.Text = "Despedir";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(71, 72);
+            label1.Name = "label1";
+            label1.Size = new Size(119, 30);
+            label1.TabIndex = 13;
+            label1.Text = "Empleados";
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Items.AddRange(new object[] { "todos", "activo", "inactivo" });
+            cmbEstado.Location = new Point(196, 79);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(121, 23);
+            cmbEstado.TabIndex = 14;
+            cmbEstado.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // Nombres
             // 
@@ -85,53 +131,12 @@
             Turno.HeaderText = "Turno";
             Turno.Name = "Turno";
             // 
-            // Estado
-            // 
-            Estado.DataPropertyName = "Estado";
-            Estado.HeaderText = "Estado";
-            Estado.Name = "Estado";
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.BackColor = Color.Indigo;
-            btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(684, 72);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(112, 38);
-            btnActualizar.TabIndex = 11;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = false;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.MediumVioletRed;
-            btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(802, 72);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(112, 38);
-            btnEliminar.TabIndex = 12;
-            btnEliminar.Text = "Despedir";
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(71, 72);
-            label1.Name = "label1";
-            label1.Size = new Size(119, 30);
-            label1.TabIndex = 13;
-            label1.Text = "Empleados";
-            // 
             // ListarEmpleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(997, 416);
+            ClientSize = new Size(892, 416);
+            Controls.Add(cmbEstado);
             Controls.Add(label1);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
@@ -151,11 +156,11 @@
         private Button btnActualizar;
         private Button btnEliminar;
         private Label label1;
+        private ComboBox cmbEstado;
         private DataGridViewTextBoxColumn Nombres;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Celular;
         private DataGridViewTextBoxColumn Rol;
         private DataGridViewTextBoxColumn Turno;
-        private DataGridViewTextBoxColumn Estado;
     }
 }

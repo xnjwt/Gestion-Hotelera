@@ -14,9 +14,11 @@ namespace Vista
     public partial class PrincipalLimpieza : Form
     {
         private HabitacionControlador Habc { get; set; }
-        public PrincipalLimpieza(HabitacionControlador habc) 
+        private TipoHabitacionControlador THabc { get; set; }
+        public PrincipalLimpieza(HabitacionControlador habc, TipoHabitacionControlador thabc) 
         {
             Habc = habc;
+            THabc = thabc;
 
             InitializeComponent();
         }
@@ -49,7 +51,8 @@ namespace Vista
 
         private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            var frm = new ListarHabitacion(Habc, THabc);
+            frm.ShowDialog();
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)

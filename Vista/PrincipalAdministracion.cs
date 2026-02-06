@@ -12,14 +12,16 @@ namespace Vista
         EmpleadoControlador Empc { get; set; }
         ClienteControlador Clic { get; set; }
         HabitacionControlador Habc { get; set; }
+        TipoHabitacionControlador Tipohabc { get; set; }
         ReservaControlador Resc { get; set; }
         PagoControlador Pagc { get; set; }
-        public PrincipalAdministracion(EmpleadoControlador empc,ClienteControlador clic, HabitacionControlador habc, ReservaControlador resc,PagoControlador pagc)
+        public PrincipalAdministracion(EmpleadoControlador empc,ClienteControlador clic, HabitacionControlador habc, TipoHabitacionControlador tipohabc, ReservaControlador resc,PagoControlador pagc)
         {
             InitializeComponent();
             Empc = empc;
             Clic = clic;
             Habc = habc;
+            Tipohabc = tipohabc;
             Resc = resc;
             Pagc = pagc;
         }
@@ -89,10 +91,22 @@ namespace Vista
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e) { }
         private void habitacionToolStripMenuItem_Click(object sender, EventArgs e) { }
-        private void registrarNuevaToolStripMenuItem_Click(object sender, EventArgs e) { }
-        private void listarToolStripMenuItem1_Click(object sender, EventArgs e) { }
-        private void crearToolStripMenuItem_Click(object sender, EventArgs e) { }
-        private void listarToolStripMenuItem2_Click(object sender, EventArgs e) { }
+        private void registrarNuevaToolStripMenuItem_Click(object sender, EventArgs e) {
+            var frm = new CrearHabitacion(Habc, Tipohabc);
+            frm.ShowDialog();
+        }
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e) {
+            var frm = new ListarHabitacion(Habc, Tipohabc);
+            frm.ShowDialog();
+        }
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e) {
+            var frm = new CrearTipoHabitacion(Tipohabc);
+            frm.ShowDialog();
+        }
+        private void listarToolStripMenuItem2_Click(object sender, EventArgs e) {
+            var frm = new ListarTipoHabitacion(Tipohabc);
+            frm.ShowDialog();
+        }
         private void Principal_Load(object sender, EventArgs e) { }
     }
 }

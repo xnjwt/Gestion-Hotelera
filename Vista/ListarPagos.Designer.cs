@@ -44,11 +44,11 @@
             dgvReserva.BorderStyle = BorderStyle.Fixed3D;
             dgvReserva.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReserva.Columns.AddRange(new DataGridViewColumn[] { ReservaID, MontoPagar, MetodoPago });
-            dgvReserva.Location = new Point(120, 159);
-            dgvReserva.Margin = new Padding(3, 5, 3, 5);
+            dgvReserva.Location = new Point(105, 119);
+            dgvReserva.Margin = new Padding(3, 4, 3, 4);
             dgvReserva.Name = "dgvReserva";
             dgvReserva.RowHeadersWidth = 51;
-            dgvReserva.Size = new Size(455, 203);
+            dgvReserva.Size = new Size(430, 152);
             dgvReserva.TabIndex = 15;
             // 
             // ReservaID
@@ -79,9 +79,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(120, 72);
+            label1.Location = new Point(102, 75);
             label1.Name = "label1";
-            label1.Size = new Size(94, 37);
+            label1.Size = new Size(71, 30);
             label1.TabIndex = 16;
             label1.Text = "Pagos";
             // 
@@ -90,10 +90,9 @@
             btnEliminar.BackColor = Color.MediumVioletRed;
             btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(458, 72);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Location = new Point(421, 71);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(128, 51);
+            btnEliminar.Size = new Size(112, 38);
             btnEliminar.TabIndex = 21;
             btnEliminar.Text = "Eliminar ";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -104,10 +103,9 @@
             btnActualizar.BackColor = Color.Indigo;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(325, 72);
-            btnActualizar.Margin = new Padding(3, 4, 3, 4);
+            btnActualizar.Location = new Point(304, 71);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(128, 51);
+            btnActualizar.Size = new Size(112, 38);
             btnActualizar.TabIndex = 20;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -115,13 +113,14 @@
             // 
             // ListarPagos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(702, 504);
+            ClientSize = new Size(614, 378);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
             Controls.Add(label1);
             Controls.Add(dgvReserva);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ListarPagos";
             Text = "ListarPagos";
             Load += ListarPagos_Load_1;

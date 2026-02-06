@@ -28,7 +28,7 @@ namespace Gestion_Hotelera
             var mCli = new ClienteModelo(dCli);
             var mRes = new ReservaModelo(dRes);
             var habModelo = new HabitacionModelo(habDatos);
-            
+            var tipoHabModelo = new TipoHabitacionModelo(tipoHabDatos);
             var mPag = new PagoModelo(dPag);
 
 
@@ -36,12 +36,12 @@ namespace Gestion_Hotelera
             var cCli = new ClienteControlador(mCli);
             var cRes = new ReservaControlador(mRes);
             var cHab = new HabitacionControlador(habModelo);
-
+            var cTipoHab = new TipoHabitacionControlador(tipoHabModelo);
             var cPag = new PagoControlador(mPag);
 
 
 
-            var frm = new Login(cEmp, cCli, cRes, cHab, cPag);
+            var frm = new Login(cEmp, cCli, cRes, cHab,cTipoHab, cPag);
 
             Application.Run(frm);
         }

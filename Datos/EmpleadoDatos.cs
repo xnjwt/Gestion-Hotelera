@@ -119,6 +119,26 @@ namespace Datos
             return lista;
         }
 
+        public List<Empleado> ListarInactivos()
+        {
+            var lista = new List<Empleado>();
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Empleado WHERE Estado = 'Inactivo'";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(Mapear(reader));
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
         public Empleado BuscarPorId(int id)
         {
             Empleado emp = null;
