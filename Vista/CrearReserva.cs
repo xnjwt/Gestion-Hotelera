@@ -12,7 +12,7 @@ using Entidades;   // Y esto
 
 namespace Vista
 {
-    public partial class btnRegistrarReserva : Form
+    public partial class CrearReserva : Form
     {
         // Variables para los controladores
         private ReservaControlador Rsc;
@@ -20,7 +20,7 @@ namespace Vista
         private HabitacionControlador Hbc;
 
         
-        public btnRegistrarReserva(ReservaControlador rsc, ClienteControlador clc, HabitacionControlador hbc)
+        public CrearReserva(ReservaControlador rsc, ClienteControlador clc, HabitacionControlador hbc)
         {
             InitializeComponent();
             Rsc = rsc;

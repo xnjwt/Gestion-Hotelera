@@ -76,5 +76,32 @@ namespace Vista
         {
             this.Close();
         }
+
+        private void crearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reservarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    
+
+        private void pagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

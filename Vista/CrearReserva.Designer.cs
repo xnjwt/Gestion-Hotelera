@@ -1,6 +1,7 @@
 ﻿namespace Vista
 {
-    partial class btnRegistrarReserva
+    partial class CrearReserva
+
     {
         /// <summary>
         /// Required designer variable.
