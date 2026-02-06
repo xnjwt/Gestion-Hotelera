@@ -16,6 +16,10 @@ namespace Controlador
         {
             mdl = modelo;
         }
+        /// Realiza la validación integral de los datos de un empleado y gestiona su persistencia.
+        /// Aplica expresiones regulares (Regex) para verificar formatos de nombres, email, contraseña, celular y estado.
+        /// Si los datos son válidos, crea una instancia de la entidad Empleado y utiliza el idEmpleado 
+        /// para decidir si debe registrar uno nuevo (Guardar) o editar uno existente (Actualizar).
         public Boolean validarEmpleado(string nombres, string email, string contrasena, string celular, RolEmpleado rol, TurnoEmpleado turno, string estado = "activo", int idEmpleado = -1)
         {
             var mNombres = Regex.Match(nombres, @".{3,}");
@@ -92,7 +96,9 @@ namespace Controlador
             }
             
 
-        }
+        }/// Gestiona el proceso de autenticación de los empleados en el sistema.
+         /// Envía las credenciales a la capa de datos (mdl) para verificar la existencia y 
+         /// coincidencia del usuario en la base de datos de Gestión Hotelera.
         public Empleado IniciarSesion(string email, string contrasena)
         {
             var empleado = mdl.IniciarSesion(email, contrasena);

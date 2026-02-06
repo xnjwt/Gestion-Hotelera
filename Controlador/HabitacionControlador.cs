@@ -16,7 +16,11 @@ namespace Controlador
         {
             mdl = modelo;
         }
-
+        /// <summary>
+        /// Realiza la validación técnica y lógica de los datos de una habitación física.
+        /// Utiliza expresiones regulares para asegurar que el número de habitación sea numérico y la ubicación tenga la longitud mínima requerida.
+        /// Si los datos son correctos, crea una entidad 'Habitacion' y decide si ejecutar un registro nuevo (Guardar) 
+        /// o una modificación (Actualizar) basándose en el idHabitacion.
         public Boolean validarHabitacion(int idTipoHabitacion, string numHabitacion, string ubicacion, string descripcion = "", bool disponibilidad = true, int idHabitacion = -1)
         {
             var mNumHabitacion = Regex.Match(numHabitacion, @"\d+");
@@ -74,9 +78,13 @@ namespace Controlador
             }
 
 
-        }
+        }// <summary>
+        /// Valida y procesa la información de las categorías o tipos de habitación (ej. Suite, Simple).
+        /// Verifica mediante Regex que el nombre, características, capacidad y precio cumplan con los formatos esperados.
+        /// Realiza una normalización del precio (manejo de puntos y comas para decimales) antes de la persistencia.
+        /// Determina si se registra un nuevo tipo o se actualiza uno existente según el idTipoHabitacion.
 
-        // Métodos para Tipo de Habitación (necesarios para llenar los ComboBox)
+
         public bool validarTipoHabitacion(string nombre, string caracteristicas, int capacidad, float precio, int id = -1)
         {
             try
@@ -110,7 +118,8 @@ namespace Controlador
                 return true;
             }
         }
-
+        /// <summary>
+        /// Recupera la lista completa de habitaciones registradas invocando la capa de datos.
         public List<Habitacion> ListarHabitaciones()
         {
             return mdl.Listar();

@@ -14,11 +14,17 @@ namespace Controlador
         {
             mdl = modelo;
         }
+        /// <summary>
+        /// Elimina de forma definitiva una reserva del sistema mediante su identificador único.
         public void EliminarReserva(int id)
         {
             mdl.Eliminar(id);
         }
-
+        /// <summary>
+        /// Ejecuta la validación integral de una reserva antes de su registro.
+        /// Verifica la existencia de IDs válidos para cliente, habitación y empleado, y aplica 
+        /// lógica de calendario: la fecha de ingreso no puede ser pasada y la salida debe ser posterior al ingreso.
+        /// Establece una restricción de estancia mínima de un día para cumplir con las políticas del hotel.
         public Boolean validarReserva(int clienteId, int habitacionId, int empleadoId, DateTime fechaIngreso, DateTime fechaSalida, int? idPago = null, int idReserva = -1)
         {
             try
@@ -87,7 +93,10 @@ namespace Controlador
                 return true;
             }
         }
-
+        /// <summary>
+        /// Vincula un comprobante de pago ya procesado con una reserva existente.
+        /// Primero valida la existencia de la reserva en la base de datos y luego actualiza 
+        /// la relación mediante la capa de datos.
         public void AsignarPago(int idReserva, int idPago)
         {
             try
@@ -107,17 +116,22 @@ namespace Controlador
                 MessageBox.Show(ex.Message, "Error al asignar pago");
             }
         }
-
+        /// <summary>
+        /// Genera una lista completa de todas las reservas registradas en el historial.
+        /// </summary>
         public List<Reserva> ListarReservas()
         {
             return mdl.Listar();
         }
-
+        /// <summary>
+        /// Filtra y devuelve únicamente las reservas que se encuentran actualmente vigentes u ocupadas.
         public List<Reserva> ListarReservasActivas()
         {
             return mdl.ListarActivas();
         }
-
+        /// <summary>
+        /// Realiza una búsqueda avanzada de reservas basándose en un criterio de texto 
+        /// (como nombre del cliente o número de habitación).
         public List<Reserva> BuscarReservas(string criterio)
         {
             return mdl.Buscar(criterio);

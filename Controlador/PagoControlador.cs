@@ -14,7 +14,11 @@ namespace Controlador
         {
             mdl = modelo;
         }
-
+        /// <summary>
+        /// Procesa la validación y persistencia de un pago asociado a una reserva.
+        /// Verifica que el ID de reserva sea válido, que el monto sea positivo y que se haya definido un método de pago.
+        /// Si los datos pasan las reglas de negocio, se instancia el objeto Pago y se determina si se trata de 
+        /// una nueva inserción o una actualización en la base de datos según el idPago.
         public bool validarPago(int reservaId, decimal monto, string metodo, int idPago = -1)
         {
             try
@@ -59,21 +63,28 @@ namespace Controlador
                 return true;
             }
         }
-
+        // <summary>
+        /// Recupera la totalidad de los registros de pago almacenados en la base de datos.
         public List<Pago> ListarPagos()
         {
             return mdl.Listar();
         }
-
+        /// <summary>
+        /// Realiza una consulta filtrada para encontrar un pago específico mediante su clave primaria.
         public Pago BuscarPagoPorId(int id)
         {
             return mdl.BuscarPorId(id);
         }
+        /// <summary>
+        /// Ejecuta la baja definitiva de un registro de pago en la capa de datos.
         public void EliminarPago(int id)
         {
             mdl.Eliminar(id);
         }
-
+        /// <summary>
+        /// Filtra los registros de pagos basándose en el método de cobro utilizado.
+        /// Útil para generar reportes segmentados por tipo de ingreso (ej. solo Efectivo).
+        /// </summary>
         public List<Pago> BuscarPagosPorMetodo(string criterio)
         {
             return mdl.Buscar(criterio);

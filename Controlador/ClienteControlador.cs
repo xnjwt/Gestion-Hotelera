@@ -15,7 +15,11 @@ namespace Controlador
         {
             mdl = modelo;
         }
-
+        /// <summary>
+        /// Realiza la validación lógica y técnica de los datos de un cliente antes de su persistencia.
+        /// Valida formatos de texto mediante expresiones regulares (Regex) para nombre, email, celular y cédula.
+        /// Determina si se debe invocar el método Guardar (para registros nuevos) o Actualizar (para registros existentes) 
+        /// en la capa de datos basándose en el valor del idCliente.
         public Boolean validarCliente(string nombre, string apellido, string email, string celular, string cedula, string direccion, DateTime? fechaNacimiento, bool estado = true, int idCliente = -1)
         {
             // Validaciones Regex (Formato de texto)
