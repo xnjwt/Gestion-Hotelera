@@ -44,7 +44,11 @@ namespace Modelo
             Val.EsEmail(empleado.Email);
             Val.EsContrasenaValida(empleado.Contrasena);
             Val.EsNumero(empleado.Celular, 10, "Celular");
-
+            if (Dts.ExisteClienteConCelular(empleado.Celular)) 
+                throw new Exception("El número de teléfono ya está usado por otro empleado. Elija otro.");
+            if(Dts.ExisteClienteConEmail(empleado.Email))
+                throw new Exception("El correo electrónico ya está usado por otro empleado. Elija otro.");
+            
             Dts.Guardar(empleado);
         }
         public List<Empleado> Listar()
@@ -79,10 +83,19 @@ namespace Modelo
             Val.EsContrasenaValida(empleadoActualizado.Contrasena);
             Val.EsNumero(empleadoActualizado.Celular, 10, "Celular");
 
+            if (Dts.ExisteClienteConCelular(empleadoActualizado.Celular))
+                throw new Exception("El número de teléfono ya está usado por otro empleado. Elija otro.");
+            if (Dts.ExisteClienteConEmail(empleadoActualizado.Email))
+                throw new Exception("El correo electrónico ya está usado por otro empleado. Elija otro.");
+            
             Dts.Actualizar(existente, empleadoActualizado);
         }
         public void Despedir(int idEmpleado)
         {
+            //No se puede despedir al empleado "Admin"
+            if (idEmpleado == 1)
+                throw new InvalidOperationException("No se puede despedir al administrador Principal");
+            
             Dts.Despedir(idEmpleado);
         }
         public Empleado IniciarSesion(string email, string contrasena)

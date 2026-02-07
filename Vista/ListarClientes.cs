@@ -20,25 +20,12 @@ namespace Vista
             dgvClientes.AutoGenerateColumns = false;
         }
 
-        private void ListarClientes_Load(object sender, EventArgs e)
-        {
-            CargarDatos();
-        }
-
-
-
-    
-
-        private void CargarDatos()
-        {
-            bs.DataSource = null;
-            bs.DataSource = Clc.ListarClientes();
-        }
 
         private void ListarClientes_Load_1(object sender, EventArgs e)
         {
             bs.DataSource = Clc.ListarClientes();
             dgvClientes.DataSource = bs;
+            cmbEstado.SelectedIndex = 1;
         }
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -60,7 +47,7 @@ namespace Vista
             string fecha = cliente.FechaNacimiento?.ToShortDateString() ?? "No registrada";
             MessageBox.Show($"Abriendo edición para: {cliente.Nombre}\nFecha Nacimiento: {fecha}");
 
-            CargarDatos();
+            ActualizarEstado();
 
         }
 
@@ -81,9 +68,29 @@ namespace Vista
                 Clc.DesactivarCliente(cliente.Id);
 
                 MessageBox.Show("Cliente desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarDatos();
+                ActualizarEstado();
             }
 
+        }
+        private void ActualizarEstado()
+        {
+            bs.DataSource = null;
+            switch (cmbEstado.SelectedIndex)
+            {
+                case 0:
+                    bs.DataSource = Clc.ListarClientes();
+                    break;
+                case 1:
+                    bs.DataSource = Clc.ListarClientesActivos();
+                    break;
+                case 2:
+                    bs.DataSource = Clc.ListarClientesInactivos();
+                    break;
+            }
+        }
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActualizarEstado();
         }
     }
 }

@@ -157,6 +157,7 @@
             cmbEstado.Name = "cmbEstado";
             cmbEstado.Size = new Size(121, 23);
             cmbEstado.TabIndex = 18;
+            cmbEstado.SelectedIndexChanged += cmbEstado_SelectedIndexChanged;
             // 
             // ListarClientes
             // 

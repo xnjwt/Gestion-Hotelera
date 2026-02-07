@@ -17,6 +17,7 @@ namespace Modelo
         public void Guardar(Habitacion habitacion)
         {
             if (habitacion == null) throw new ArgumentNullException(nameof(habitacion));
+
             Dts.Guardar(habitacion);
         }
 

@@ -135,6 +135,26 @@ namespace Datos
             return lista;
         }
 
+        public List<Cliente> ListarInactivos()
+        {
+            var lista = new List<Cliente>();
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Cliente WHERE Estado = 0";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(Mapear(reader));
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
         public Cliente ObtenerPorId(int id)
         {
             Cliente cliente = null;

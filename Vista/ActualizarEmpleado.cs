@@ -44,7 +44,7 @@ namespace Vista
                 txtCelular.Text,
                 (RolEmpleado)cmbRol.SelectedValue,
                 (TurnoEmpleado)cmbTurno.SelectedValue,
-                Empl.Estado,
+                cbActivo.Checked==true ? "activo": "Inactivo",
                 Empl.Id
                 );
             if (!error)

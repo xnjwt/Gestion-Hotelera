@@ -18,9 +18,12 @@ namespace Modelo
         {
             if (pago == null) throw new ArgumentNullException(nameof(pago));
 
-            // Regla de negocio: El monto no puede ser negativo ni cero
+            // El monto no puede ser negativo ni cero
             if (pago.MontoTotal <= 0)
                 throw new ArgumentException("El monto del pago debe ser mayor a 0.");
+            //El pago no puede tener una fecha futura
+            if (pago.FechaPago > DateTime.Now)
+                throw new ArgumentException("La fecha del pago no puede ser futura.");
 
             Dts.Guardar(pago);
         }

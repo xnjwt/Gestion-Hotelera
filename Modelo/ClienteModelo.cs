@@ -24,13 +24,17 @@ namespace Modelo
 
             if (Dts.ExisteClienteConEmail(cliente.Email))
                 throw new ArgumentException("El email ya se encuentra registrado.");
+            //El cliente debe ser mayor de edad
+            if (cliente.FechaNacimiento.HasValue && cliente.FechaNacimiento.Value > DateTime.Now.AddYears(-18))
+                throw new ArgumentException("El cliente debe ser mayor de edad.");
 
             Dts.Guardar(cliente); //
         }
 
         public List<Cliente> Listar() => Dts.Listar(); //
 
-        public List<Cliente> ListarActivos() => Dts.ListarActivos(); //
+        public List<Cliente> ListarActivos() => Dts.ListarActivos(); 
+        public List<Cliente> ListarInactivos() => Dts.ListarInactivos();
 
         public Cliente ObtenerPorId(int id) => Dts.ObtenerPorId(id); //
 
@@ -44,10 +48,13 @@ namespace Modelo
             if (existente == null)
                 throw new InvalidOperationException("El cliente no existe.");
 
-            // Validar duplicados exceptuando al cliente actual
+            if(Dts.ExisteClienteConEmail(clienteActualizado.Email, clienteActualizado.Id))
+                throw new ArgumentException("El email ya pertenece a otro cliente.");
             if (Dts.ExisteClienteConCedula(clienteActualizado.Cedula, clienteActualizado.Id))
                 throw new ArgumentException("La cédula ya pertenece a otro cliente.");
 
+            if (clienteActualizado.FechaNacimiento.HasValue && clienteActualizado.FechaNacimiento.Value > DateTime.Now.AddYears(-18))
+                throw new ArgumentException("El cliente debe ser mayor de edad.");
             Dts.Actualizar(existente, clienteActualizado); //
         }
 
