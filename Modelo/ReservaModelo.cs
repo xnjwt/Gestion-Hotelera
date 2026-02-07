@@ -26,7 +26,16 @@ namespace Modelo
 
             Dts.Guardar(reserva);
         }
-
+        public void Actualizar(Reserva reserva)
+        {
+            if (reserva == null) throw new ArgumentNullException(nameof(reserva));
+            // Validaciones
+            if (reserva.FechaSalida <= reserva.FechaIngreso)
+            {
+                throw new ArgumentException("La fecha de salida debe ser posterior a la fecha de ingreso.");
+            }
+            Dts.Actualizar(reserva);
+        }
         public List<Reserva> Listar()
         {
             return Dts.Listar();
@@ -36,7 +45,15 @@ namespace Modelo
         {
             return Dts.ListarActivas();
         }
+        public List<Reserva> ListarConfirmadas()
+        {
+            return Dts.ListarConfirmadas();
+        }
+        public List<Reserva> ListarCanceladas()
+        {
+             return Dts.ListarCanceladas();
 
+        }
         public Reserva BuscarPorId(int id)
         {
             return Dts.BuscarPorId(id);
@@ -60,9 +77,9 @@ namespace Modelo
             Dts.AsignarPago(reserva, idPago);
         }
 
-        public void Eliminar(int id)
+        public void Cancelar(int idReserva)
         {
-            throw new NotImplementedException();
+            Dts.Cancelar(idReserva);
         }
     }
 }

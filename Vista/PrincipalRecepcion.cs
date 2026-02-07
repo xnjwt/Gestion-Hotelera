@@ -45,7 +45,7 @@ namespace Vista
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new ListarReserva(Resc, Clic, Habc);
+            var frm = new ListarReserva(Resc,Pagc, Clic, Habc);
             frm.ShowDialog();
         }
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e) { }

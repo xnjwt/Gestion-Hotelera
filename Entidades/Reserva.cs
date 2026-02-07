@@ -30,7 +30,8 @@ namespace Entidades
             int empleadoId,
             DateTime fechaIngreso,
             DateTime fechaSalida,
-            int id = -1)
+            int id = -1,
+            EstadoReserva estado = EstadoReserva.Pendiente)
         {
             Id = id;
             ClienteId = clienteId;
@@ -38,7 +39,7 @@ namespace Entidades
             EmpleadoId = empleadoId;
             FechaIngreso = fechaIngreso;
             FechaSalida = fechaSalida;
-            Estado = EstadoReserva.Pendiente;
+            Estado = estado;
             IdPago = null;
         }
 

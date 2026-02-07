@@ -34,8 +34,9 @@
             Habitacion = new DataGridViewTextBoxColumn();
             FechaEntrada = new DataGridViewTextBoxColumn();
             FechaSalida = new DataGridViewTextBoxColumn();
-            btnEliminar = new Button();
+            btnCancelar = new Button();
             btnActualizar = new Button();
+            cmbEstado = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvReserva).BeginInit();
             SuspendLayout();
             // 
@@ -93,38 +94,51 @@
             FechaSalida.Name = "FechaSalida";
             FechaSalida.Width = 125;
             // 
-            // btnEliminar
+            // btnCancelar
             // 
-            btnEliminar.BackColor = Color.MediumVioletRed;
-            btnEliminar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.ForeColor = SystemColors.ButtonFace;
-            btnEliminar.Location = new Point(504, 64);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(128, 51);
-            btnEliminar.TabIndex = 19;
-            btnEliminar.Text = "Eliminar ";
-            btnEliminar.UseVisualStyleBackColor = false;
+            btnCancelar.BackColor = Color.MediumVioletRed;
+            btnCancelar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = SystemColors.ButtonFace;
+            btnCancelar.Location = new Point(505, 69);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(128, 51);
+            btnCancelar.TabIndex = 19;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnActualizar
             // 
             btnActualizar.BackColor = Color.Indigo;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ButtonFace;
-            btnActualizar.Location = new Point(369, 64);
+            btnActualizar.Location = new Point(370, 69);
             btnActualizar.Margin = new Padding(3, 4, 3, 4);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(128, 51);
             btnActualizar.TabIndex = 18;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click_1;
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Items.AddRange(new object[] { "Todas", "Pendiente", "Confirmada", "Cancelada" });
+            cmbEstado.Location = new Point(173, 89);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(121, 23);
+            cmbEstado.TabIndex = 20;
+            cmbEstado.SelectedIndexChanged += cmbEstado_SelectedIndexChanged;
             // 
             // ListarReserva
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(702, 428);
-            Controls.Add(btnEliminar);
+            Controls.Add(cmbEstado);
+            Controls.Add(btnCancelar);
             Controls.Add(btnActualizar);
             Controls.Add(label1);
             Controls.Add(dgvReserva);
@@ -141,11 +155,12 @@
 
         private Label label1;
         private DataGridView dgvReserva;
-        private Button btnEliminar;
+        private Button btnCancelar;
         private Button btnActualizar;
         private DataGridViewTextBoxColumn Cliente;
         private DataGridViewTextBoxColumn Habitacion;
         private DataGridViewTextBoxColumn FechaEntrada;
         private DataGridViewTextBoxColumn FechaSalida;
+        private ComboBox cmbEstado;
     }
 }

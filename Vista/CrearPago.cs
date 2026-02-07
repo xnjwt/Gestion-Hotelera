@@ -35,11 +35,11 @@ namespace Vista
         {
             // 1. Captura de datos directa
             int reservaId = Convert.ToInt32(cmbReservas.SelectedValue);
-            decimal monto = Convert.ToDecimal(txtMonto.Text);
+
             string metodo = cmbMetodo.Text;
 
             // 2. Llamada al controlador (él se encarga de validar reglas de negocio y guardar)
-            var huboError = Pgc.validarPago(reservaId, monto, metodo);
+            var huboError = Pgc.validarPago(reservaId, txtMonto.Text, metodo);
 
             // 3. Si no hubo error, cerramos
             if (!huboError)

@@ -2,7 +2,9 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Controlador
 {
@@ -14,16 +16,22 @@ namespace Controlador
         {
             mdl = modelo;
         }
-
-        public bool validarPago(int reservaId, decimal monto, string metodo, int idPago = -1)
+        public int ObtenerIdPago(int idReserva)
         {
+            return mdl.ObtenerIdPago(idReserva);
+        }
+        public bool validarPago(int reservaId, string monto, string metodo, int idPago = -1)
+        {
+            var mMonto = Regex.Match(monto, @"\d+(\.\d+)?");
+            Decimal montoCorrecto;
             try
             {
                 if (reservaId <= 0)
                     throw new ArgumentException("Debe asociar el pago a una reserva válida.");
 
-                if (monto <= 0)
+                if (!mMonto.Success)
                     throw new ArgumentException("El monto a pagar debe ser mayor a 0.");
+                else montoCorrecto = Decimal.Parse(mMonto.Value);
 
                 if (string.IsNullOrWhiteSpace(metodo))
                     throw new ArgumentException("Debe especificar el método de pago (Efectivo, Tarjeta, etc).");
@@ -34,8 +42,8 @@ namespace Controlador
                 return true;
             }
 
-            // El constructor de Pago asigna FechaPago = DateTime.UtcNow automáticamente
-            var pago = new Pago(reservaId, monto, metodo, idPago);
+            
+            var pago = new Pago(reservaId, montoCorrecto, metodo, idPago);
 
             try
             {
@@ -45,10 +53,7 @@ namespace Controlador
                 }
                 else
                 {
-                    // Nota: Al usar new Pago(), la fecha se resetea a hoy. 
-                    // Si se quisiera mantener la fecha original al editar, 
-                    // se debería buscar el objeto antes o modificar el constructor.
-                    // Trabajamos con lo provisto.
+                    
                     mdl.Actualizar(pago);
                 }
                 return false;
