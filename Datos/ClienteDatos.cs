@@ -12,7 +12,7 @@ namespace Datos
         {
             using (var conexion = ConexionDB.GetConnection())
             {
-                conexion.Open();
+                conexion.Open(); //a
                 string query = "SELECT COUNT(1) FROM Cliente WHERE Email = @email AND Id != @exceptoID";
 
                 using (var cmd = new SqlCommand(query, conexion))
