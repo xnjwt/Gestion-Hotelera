@@ -20,13 +20,7 @@ namespace Vista
 
         private void CrearReserva_Load(object sender, EventArgs e)
         {
-            cmbClientes.DataSource = Clc.ListarClientes();
-            cmbClientes.DisplayMember = "Nombre";
-            cmbClientes.ValueMember = "Id";
-
-            cmbHabitaciones.DataSource = Hbc.ListarHabitaciones();
-            cmbHabitaciones.DisplayMember = "Numero";
-            cmbHabitaciones.ValueMember = "Id";
+            
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -44,6 +38,11 @@ namespace Vista
                 MessageBox.Show("Reserva guardada correctamente.");
                 this.Close();
             }
+        }
+
+        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

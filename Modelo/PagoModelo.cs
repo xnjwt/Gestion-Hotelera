@@ -13,6 +13,10 @@ namespace Modelo
         {
             Dts = dts;
         }
+        public int ObtenerIdPago(int idReserva)
+        {
+            return Dts.ObtenerIdPago(idReserva);
+        }
 
         public void Guardar(Pago pago)
         {
@@ -21,9 +25,6 @@ namespace Modelo
             // El monto no puede ser negativo ni cero
             if (pago.MontoTotal <= 0)
                 throw new ArgumentException("El monto del pago debe ser mayor a 0.");
-            //El pago no puede tener una fecha futura
-            if (pago.FechaPago > DateTime.Now)
-                throw new ArgumentException("La fecha del pago no puede ser futura.");
 
             Dts.Guardar(pago);
         }

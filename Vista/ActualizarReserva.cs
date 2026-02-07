@@ -8,14 +8,16 @@ namespace Vista
     public partial class ActualizarReserva : Form
     {
         private ReservaControlador Rsc;
+        private PagoControlador Pgc;
         private ClienteControlador Clc;
         private HabitacionControlador Hbc;
         private Reserva ReservaSeleccionada;
 
-        public ActualizarReserva(ReservaControlador rsc, ClienteControlador clc, HabitacionControlador hbc, Reserva reserva)
+        public ActualizarReserva(ReservaControlador rsc, PagoControlador pgc, ClienteControlador clc, HabitacionControlador hbc, Reserva reserva)
         {
             InitializeComponent();
             Rsc = rsc;
+            Pgc = pgc;
             Clc = clc;
             Hbc = hbc;
             ReservaSeleccionada = reserva;
@@ -23,48 +25,71 @@ namespace Vista
 
         private void ActualizarReserva_Load(object sender, EventArgs e)
         {
-            // Llenar los ComboBox
-            cmbClientes.DataSource = Clc.ListarClientes();
-            cmbClientes.DisplayMember = "Nombre";
-            cmbClientes.ValueMember = "Id";
-
-            cmbHabitaciones.DataSource = Hbc.ListarHabitaciones();
-            cmbHabitaciones.DisplayMember = "Numero";
-            cmbHabitaciones.ValueMember = "Id";
-
-            // Asignar los valores actuales de la reserva a los controles
-            cmbClientes.SelectedValue = ReservaSeleccionada.ClienteId;
-            cmbHabitaciones.SelectedValue = ReservaSeleccionada.HabitacionId;
-            dtpIngreso.Value = ReservaSeleccionada.FechaIngreso;
-            dtpSalida.Value = ReservaSeleccionada.FechaSalida;
+            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             // Capturar datos modificados
-            int clienteId = Convert.ToInt32(cmbClientes.SelectedValue);
-            int habitacionId = Convert.ToInt32(cmbHabitaciones.SelectedValue);
+            int clienteId = ReservaSeleccionada.ClienteId;
+            int habitacionId = ReservaSeleccionada.HabitacionId;
             DateTime ingreso = dtpIngreso.Value;
             DateTime salida = dtpSalida.Value;
 
-            // Mantenemos el mismo empleado que la creó (o podrías poner el usuario actual)
-            int empleadoId = ReservaSeleccionada.EmpleadoId;
 
-            // Llamamos al controlador pasando el ID de la reserva al final para que actualice
-            var huboError = Rsc.validarReserva(
-                clienteId,
-                habitacionId,
-                empleadoId,
-                ingreso,
-                salida,
-                ReservaSeleccionada.IdPago,
-                ReservaSeleccionada.Id // ID IMPORTANTE: Indica actualización
-            );
+            int empleadoId = ReservaSeleccionada.EmpleadoId;
+            var huboError = false;
+
+            if ((ReservaSeleccionada.IdPago == null || ReservaSeleccionada.IdPago == -1) && (cmbMetodo.Text != "" || txtMonto.Text != ""))
+            {
+                Pgc.validarPago(ReservaSeleccionada.Id, txtMonto.Text, cmbMetodo.Text);
+                int idPago = Pgc.ObtenerIdPago(ReservaSeleccionada.Id);
+
+                huboError = Rsc.validarReserva(
+                    clienteId,
+                    habitacionId,
+                    empleadoId,
+                    ingreso,
+                    salida,
+                    idPago,
+                    ReservaSeleccionada.Id,
+                    EstadoReserva.Confirmada
+                );
+            }
+            else if( ReservaSeleccionada.IdPago!=null && ReservaSeleccionada.IdPago != -1)
+            {
+                huboError = Pgc.validarPago(ReservaSeleccionada.Id, txtMonto.Text, cmbMetodo.Text, (int)ReservaSeleccionada.IdPago );
+                
+                huboError = Rsc.validarReserva(
+                    clienteId,
+                    habitacionId,
+                    empleadoId,
+                    ingreso,
+                    salida,
+                    ReservaSeleccionada.IdPago,
+                    ReservaSeleccionada.Id,
+                    ReservaSeleccionada.Estado
+                );
+            }
 
             if (!huboError)
             {
                 MessageBox.Show("Reserva actualizada correctamente.");
                 this.Close();
+            }
+        }
+
+        private void ActualizarReserva_Load_1(object sender, EventArgs e)
+        {
+            txtCliente.Text = ReservaSeleccionada.ClienteId.ToString();
+            txtHabitacion.Text = ReservaSeleccionada.HabitacionId.ToString();
+            dtpIngreso.Value = ReservaSeleccionada.FechaIngreso;
+            dtpSalida.Value = ReservaSeleccionada.FechaSalida;
+            if (ReservaSeleccionada.IdPago != null)
+            {
+                var pago = Pgc.BuscarPagoPorId((int)ReservaSeleccionada.IdPago);
+                txtMonto.Text = pago.MontoTotal.ToString();
+                cmbMetodo.FindStringExact(pago.Metodo.ToString());
             }
         }
     }

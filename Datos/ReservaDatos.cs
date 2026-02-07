@@ -51,18 +51,22 @@ namespace Datos
             }
         }
 
-        public void Eliminar(int id)
+        public void Cancelar(int idReserva)
         {
+            //Cambia el estado de reserva a cancelada
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
-                string query = "DELETE FROM Reserva WHERE Id = @id";
+                string query = "UPDATE Reserva SET Estado='Cancelada' WHERE Id=@id";
                 using (var cmd = new SqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@id", idReserva);
                     cmd.ExecuteNonQuery();
                 }
             }
+
+
+
         }
 
         public List<Reserva> Listar()
@@ -92,8 +96,8 @@ namespace Datos
             using (var conexion = ConexionDB.GetConnection())
             {
                 conexion.Open();
-                // Ajusté la query para que coincida con los estados de tu Enum
-                string query = "SELECT * FROM Reserva WHERE Estado = 'Pendiente' OR Estado = 'Confirmada'";
+
+                string query = "SELECT * FROM Reserva WHERE Estado = 'Pendiente'";
 
                 using (var cmd = new SqlCommand(query, conexion))
                 {
@@ -108,7 +112,46 @@ namespace Datos
             }
             return lista;
         }
-
+        public List<Reserva> ListarConfirmadas()
+        {
+            var lista = new List<Reserva>();
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Reserva WHERE Estado = 'Confirmada'";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(Mapear(reader));
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
+        public List<Reserva> ListarCanceladas()
+        {
+            var lista = new List<Reserva>();
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Reserva WHERE Estado = 'Cancelada'";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(Mapear(reader));
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
         public Reserva BuscarPorId(int id)
         {
             Reserva reserva = null;

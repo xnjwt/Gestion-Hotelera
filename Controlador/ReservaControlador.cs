@@ -14,12 +14,15 @@ namespace Controlador
         {
             mdl = modelo;
         }
-        public void EliminarReserva(int id)
+        public void CancelarReserva(int idReserva)
         {
-            mdl.Eliminar(id);
+           mdl.Cancelar(idReserva);
         }
-
-        public Boolean validarReserva(int clienteId, int habitacionId, int empleadoId, DateTime fechaIngreso, DateTime fechaSalida, int? idPago = null, int idReserva = -1)
+        public Reserva BuscarReservaPorId(int idReserva)
+        {
+            return mdl.BuscarPorId(idReserva);
+        }
+        public Boolean validarReserva(int clienteId, int habitacionId, int empleadoId, DateTime fechaIngreso, DateTime fechaSalida, int? idPago = null, int idReserva = -1, EstadoReserva estado = EstadoReserva.Pendiente)
         {
             try
             {
@@ -56,7 +59,8 @@ namespace Controlador
                 empleadoId,
                 fechaIngreso,
                 fechaSalida,
-                idReserva
+                idReserva,
+                estado
             );
 
             // Si viene un pago, lo asignamos (aunque el constructor lo pone null por defecto)
@@ -74,9 +78,8 @@ namespace Controlador
                 }
                 else
                 {
-                    // Nota: ReservasDatos no tiene método Update general, solo AsignarPago.
-                    // Si se requiere editar fechas/habitacion, se debe implementar en Datos primero.
-                    throw new NotImplementedException("La actualización de datos de reserva no está implementada en la capa de Datos.");
+
+                    mdl.Actualizar(reserva);
                 }
 
                 return false;
@@ -116,6 +119,14 @@ namespace Controlador
         public List<Reserva> ListarReservasActivas()
         {
             return mdl.ListarActivas();
+        }
+        public List<Reserva> ListarReservasConfirmadas()
+        {
+            return mdl.ListarConfirmadas();
+        }
+        public List<Reserva> ListarReservasCanceladas()
+        {
+            return mdl.ListarCanceladas();
         }
 
         public List<Reserva> BuscarReservas(string criterio)

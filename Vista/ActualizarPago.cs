@@ -54,17 +54,13 @@ namespace Vista
             string metodo = cmbMetodo.Text;
 
             // Conversión básica del monto
-            if (!decimal.TryParse(txtMonto.Text, out decimal monto))
-            {
-                MessageBox.Show("Monto inválido.");
-                return;
-            }
+            
 
             // 2. Llamar al controlador enviando el ID del pago existente
             // El ID es la clave para que el controlador sepa que es UPDATE y no INSERT
             var huboError = Pgc.validarPago(
                 reservaId,
-                monto,
+                txtMonto.Text,
                 metodo,
                 PagoSeleccionado.Id // ID IMPORTANTE
             );

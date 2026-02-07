@@ -8,6 +8,20 @@ namespace Datos
 {
     public class PagosDatos
     {
+        public int ObtenerIdPago(int idReserva)
+        {
+            using (var conexion = ConexionDB.GetConnection())
+            {
+                conexion.Open();
+                string query = "SELECT Id FROM Pago WHERE ReservaId = @reservaId";
+                using (var cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@reservaId", idReserva);
+                    var result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+            }
+        }
         public void Guardar(Pago pago)
         {
             using (var conexion = ConexionDB.GetConnection())
